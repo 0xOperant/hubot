@@ -14,9 +14,9 @@ module.exports = (robot) ->
         quote = JSON.parse body
         res.send "#{quote.data}"
 
-  robot.respond /ricksum (.*)/i, (msg) ->
-    p = escape(msg.match[1])
-    q = escape(msg.match[2])
+  robot.respond /ricksum (.*)/i, (res) ->
+    p = escape(res.match[1])
+    q = escape(res.match[2])
     robot.http("http://loremricksum.com/api/?paragraphs={p}&quotes={q}")
     .get() (err, response, body) ->
         if response.statusCode isnt 200
