@@ -6,6 +6,7 @@
   "description": "Just A Rather Very Intelligent System (J.A.R.V.I.S.)",
   "dependencies": {
     "hubot": "^2.19.0",
+    "hubot-aftership": "^1.0.7",
     "hubot-diagnostics": "0.0.2",
     "hubot-google-images": "^0.2.7",
     "hubot-help": "^0.2.2",
