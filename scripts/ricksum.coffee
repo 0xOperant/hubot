@@ -1,10 +1,9 @@
 # Commands:
-#   hubot rick me <# quotes (required)> - Gets quote(s) from loremricksum.com api and posts to the current channel
+#   hubot rick me - Gets quote from loremricksum.com api and posts to the current channel
 
 module.exports = (robot) ->
-  robot.respond /rick me (.*)/i, (res) ->
-    q = escape(res.match[1])
-    robot.http("http://loremricksum.com/api/?paragraphs=1&quotes=#{q}")
+  robot.respond /rick me/i, (res) ->
+    robot.http("http://loremricksum.com/api/?paragraphs=1&quotes=1")
       .header('Accept', 'application/json')
       .get() (err, response, body) ->
         if response.statusCode isnt 200
