@@ -17,7 +17,7 @@ module.exports = (robot) ->
   robot.respond /ricksum (.*)/i, (res) ->
     p = escape(res.match[1])
     q = escape(res.match[2])
-    robot.http("http://loremricksum.com/api/?paragraphs={p}&quotes={q}")
+    robot.http("http://loremricksum.com/api/?paragraphs=#{p}&quotes=#{q}")
     .get() (err, response, body) ->
         if response.statusCode isnt 200
           res.send "Request didn't come back HTTP 200 :("
