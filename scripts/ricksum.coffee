@@ -1,5 +1,8 @@
+# Commands:
+#   hubot rick me - <gets a quote from loremricksum.com api and posts to the current channel>
+
 module.exports = (robot) ->
-  robot.hear /rick me/i, (res) ->
+  robot.respond /rick me/i, (res) ->
     robot.http("http://loremricksum.com/api/?paragraphs=1&quotes=1")
       .header('Accept', 'application/json')
       .get() (err, response, body) ->
