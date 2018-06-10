@@ -8,5 +8,6 @@
   "hubot-redis-brain",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-markov"
+  "hubot-markov",
+  "hubot-memegeneration"
 ]
