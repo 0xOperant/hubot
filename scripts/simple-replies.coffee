@@ -1,6 +1,13 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
+# Commands:
+#   hubot toss|flip a coin - Randomly returns heads or tails
+#   hubot have a beer - Give hubot a beer! Not too many though, we have work to do...
+#   hubot sleep it off - For when hubot has had too many beers
 
 module.exports = (robot) ->
+   coin = ['heads', 'tails']
+   robot.respond /toss|flip a coin/i, (res) ->
+     res.reply res.random coin
    
    greets = ['hello', 'hi', 'oh hai', 'hey there', 'sup', 'greetz', 'yo', 'what up']
    robot.respond /hello|hi|sup|hey/i, (res) ->
@@ -22,7 +29,7 @@ module.exports = (robot) ->
        res.reply "Opening #{doorType} doors"
   
    robot.hear /I like pie/i, (res) ->
-     res.emote "makes a freshly baked pie"
+     res.emote "makes a freshly baked pie :pie:"
   
    lulz = ['lol', 'rofl', 'lmao', 'lulz', 'l o l']
   
@@ -45,13 +52,13 @@ module.exports = (robot) ->
      beersHad = robot.brain.get('totalBeers') * 1 or 0
   
      if beersHad > 4
-       res.reply "oof, I'm too tipsy...*hiccup*"
+       res.reply ":zany_face: oof, I'm too tipsy...*hiccup*"
   
      else
-       res.reply 'Sure!'
+       res.reply 'Sure! :beer:'
   
        robot.brain.set 'totalBeers', beersHad+1
   
    robot.respond /sleep it off/i, (res) ->
      robot.brain.set 'totalBeers', 0
-     res.reply 'zzzzz'
+     res.reply 'zzzzz :sleeping:'
