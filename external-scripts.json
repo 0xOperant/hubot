@@ -3,7 +3,6 @@
   "hubot-help",
   "hubot-heroku-keepalive",
   "hubot-google-images",
-  "hubot-microsoft-translator",
   "hubot-pugme",
   "hubot-maps",
   "hubot-redis-brain",
