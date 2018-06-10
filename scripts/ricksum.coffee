@@ -7,5 +7,5 @@ module.exports = (robot) ->
           res.send "Request didn't come back HTTP 200 :("
           return
 
-        data = JSON.parse body
-        res.send "#{data}"
+        quote = JSON.parse body
+        res.send "#{quote.data}"
