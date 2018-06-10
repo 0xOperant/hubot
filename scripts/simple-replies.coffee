@@ -3,7 +3,7 @@
 module.exports = (robot) ->
    
    greets = ['hello', 'hi', 'oh hai', 'hey there', 'sup', 'greetz', 'yo', 'what up']
-   robot.respond /hello|hi|sup|hey/i, ->
+   robot.respond /hello|hi|sup|hey/i, (res) ->
      res.reply res.random greets
 
 #listen for "badger" and post to channel
