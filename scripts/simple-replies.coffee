@@ -1,8 +1,8 @@
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 # Commands:
 #   hubot toss|flip a coin - Randomly returns heads or tails
-#   hubot have a beer - Give hubot a beer! Not too many though, we have work to do...
-#   hubot sleep it off - For when hubot has had too many beers
+#   hubot have a beer - Give jarvis a beer! Not too many though, we have work to do...
+#   hubot sleep it off - For when jarvis has had too many beers
 
 module.exports = (robot) ->
    coin = ['heads', 'tails']
