@@ -4,6 +4,8 @@
 module.exports = (robot) ->
   robot.respond /rick me (.*)/i, (res) ->
     q = escape(res.match[1])
+    if !q?
+      q = "1"; 
     robot.http("http://loremricksum.com/api/?paragraphs=1&quotes=#{q}")
       .header('Accept', 'application/json')
       .get() (err, response, body) ->
