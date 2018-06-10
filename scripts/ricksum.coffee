@@ -14,7 +14,7 @@ module.exports = (robot) ->
         quote = JSON.parse body
         res.send "#{quote.data}"
 
-  robot.respond /ricksum (.*)/i, (res) ->
+  robot.respond /ricksum (.*), (.*)/i, (res) ->
     p = escape(res.match[1])
     q = escape(res.match[2])
     robot.http("http://loremricksum.com/api/?paragraphs=#{p}&quotes=#{q}")
