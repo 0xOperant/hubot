@@ -10,35 +10,35 @@
 
 module.exports = (robot) ->
 
-  # robot.hear /badger/i, (res) ->
-  #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
-  #
-  # robot.respond /open the (.*) doors/i, (res) ->
-  #   doorType = res.match[1]
-  #   if doorType is "pod bay"
-  #     res.reply "I'm afraid I can't let you do that."
-  #   else
-  #     res.reply "Opening #{doorType} doors"
-  #
-  # robot.hear /I like pie/i, (res) ->
-  #   res.emote "makes a freshly baked pie"
-  #
+   robot.hear /badger/i, (res) ->
+     res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+  
+   robot.respond /open the (.*) doors/i, (res) ->
+     doorType = res.match[1]
+     if doorType is "pod bay"
+       res.reply "I'm afraid I can't let you do that."
+     else
+       res.reply "Opening #{doorType} doors"
+  
+   robot.hear /I like pie/i, (res) ->
+     res.emote "makes a freshly baked pie"
+  
    lulz = ['lol', 'rofl', 'lmao']
   
    robot.hear /lulz/i, (res) ->
      res.send res.random lulz
-  #
-  # robot.topic (res) ->
-  #   res.send "#{res.message.text}? That's a Paddlin'"
-  #
-  #
-  # enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
-  # leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
-  #
-  # robot.enter (res) ->
-  #   res.send res.random enterReplies
-  # robot.leave (res) ->
-  #   res.send res.random leaveReplies
+  
+   robot.topic (res) ->
+     res.send "#{res.message.text}? That's a Paddlin'"
+  
+  
+   enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
+   leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
+  
+   robot.enter (res) ->
+     res.send res.random enterReplies
+   robot.leave (res) ->
+     res.send res.random leaveReplies
   #
   # answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING
   #
@@ -83,24 +83,24 @@ module.exports = (robot) ->
   #
   #   res.send 'OK'
   #
-  # robot.error (err, res) ->
-  #   robot.logger.error "DOES NOT COMPUTE"
+   robot.error (err, res) ->
+     robot.logger.error "DOES NOT COMPUTE"
+  
+     if res?
+       res.reply "DOES NOT COMPUTE"
   #
-  #   if res?
-  #     res.reply "DOES NOT COMPUTE"
-  #
-  # robot.respond /have a soda/i, (res) ->
-  #   # Get number of sodas had (coerced to a number).
-  #   sodasHad = robot.brain.get('totalSodas') * 1 or 0
-  #
-  #   if sodasHad > 4
-  #     res.reply "I'm too fizzy.."
-  #
-  #   else
-  #     res.reply 'Sure!'
-  #
-  #     robot.brain.set 'totalSodas', sodasHad+1
-  #
-  # robot.respond /sleep it off/i, (res) ->
-  #   robot.brain.set 'totalSodas', 0
-  #   res.reply 'zzzzz'
+   robot.respond /have a beer/i, (res) ->
+     # Get number of sodas had (coerced to a number).
+     beersHad = robot.brain.get('totalBeers') * 1 or 0
+  
+     if beersHad > 4
+       res.reply "oof, I'm too tipsy...*hiccup*"
+  
+     else
+       res.reply 'Sure!'
+  
+       robot.brain.set 'totalBeers', beersHad+1
+  
+   robot.respond /sleep it off/i, (res) ->
+     robot.brain.set 'totalBeers', 0
+     res.reply 'zzzzz'
