@@ -3,7 +3,7 @@ storageMap = require './storage'
 intSetting = (hash, key, def) ->
   return def if not hash[key]? or hash[key].length is 0
   normalized = hash[key].replace /\s+/g, ''
-  unless /^\d+$/.test normalized
+  unless /^[-+]?[0-9]*\.?[0-9]+$/.test normalized
     throw new Error("#{key} must be numeric")
   parseInt(normalized)
 
