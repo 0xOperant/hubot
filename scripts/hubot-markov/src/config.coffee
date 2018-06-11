@@ -48,7 +48,8 @@ module.exports = (hash) ->
     generateMax: intSetting(hash, 'HUBOT_MARKOV_GENERATE_MAX', 50)
     storageKind: enumSetting(hash, 'HUBOT_MARKOV_STORAGE', Object.keys(storageMap), 'memory')
     storageUrl: stringSetting(hash, 'HUBOT_MARKOV_STORAGE_URL', null)
-    respondChance: intSetting(hash, 'HUBOT_MARKOV_RESPOND_CHANCE', 0)
+    respondChance: 0.95
+#    respondChance: intSetting(hash, 'HUBOT_MARKOV_RESPOND_CHANCE', 0)
     defaultModel: boolSetting(hash, 'HUBOT_MARKOV_DEFAULT_MODEL', true)
     reverseModel: boolSetting(hash, 'HUBOT_MARKOV_REVERSE_MODEL', true)
     includeUrls: boolSetting(hash, 'HUBOT_MARKOV_INCLUDE_URLS', false)
