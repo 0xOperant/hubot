@@ -35,7 +35,12 @@ module.exports = (robot) ->
 
    robot.listen(
     (message) ->
-      message.text /lulz|lol|lmao|l o l|rofl/i and Math.random() > 0.2
+      return false unless message.text
+      match = message.text.match /lulz|lol|lmao|l o l|rofl/i
+      if match and Math.random() > 0.2 
+        return true
+      else 
+        return false
     (response) ->
       response.send response.random lulz
   )
