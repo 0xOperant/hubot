@@ -37,7 +37,7 @@ module.exports = (robot) ->
     (message) ->
       return false unless message.text
       match = message.text.match /lulz|lol|lmao|l o l|rofl/i
-      if match and Math.random() > 0.05 
+      if match and Math.random() > 0.95 
         return true
       else 
         return false
