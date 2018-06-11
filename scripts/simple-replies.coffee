@@ -37,13 +37,13 @@ module.exports = (robot) ->
     (message) ->
       return false unless message.text
       match = message.text.match /lulz|lol|lmao|l o l|rofl/i
-      if match and Math.random() > 0.2 
+      if match and Math.random() > 0.05 
         return true
       else 
         return false
     (response) ->
       response.send response.random lulz
-  )
+   )
 
 #   robot.hear /lulz|lol|lmao|l o l|rofl/i, (res) ->
 #     res.send res.random lulz
