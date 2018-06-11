@@ -9,5 +9,6 @@
   "hubot-rules",
   "hubot-shipit",
   "hubot-markov",
-  "hubot-aftership"
+  "hubot-aftership",
+  "hubot-vtr-scripts"
 ]
