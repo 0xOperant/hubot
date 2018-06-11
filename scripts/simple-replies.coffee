@@ -32,9 +32,16 @@ module.exports = (robot) ->
      res.emote "makes a freshly baked pie :pie:"
   
    lulz = ['lol', 'rofl', 'lmao', 'lulz', 'l o l']
-  
-   robot.hear /lulz|lol|lmao|l o l|rofl/i, (res) ->
-     res.send res.random lulz
+
+   robot.listen(
+    (message) ->
+      message.text.match /lulz|lol|lmao|l o l|rofl/i and Math.random() > 0.2
+    (response) ->
+      response.send response.random lulz
+  )
+
+#   robot.hear /lulz|lol|lmao|l o l|rofl/i, (res) ->
+#     res.send res.random lulz
   
    robot.topic (res) ->
      res.send "#{res.message.text}? That's a Paddlin'"
