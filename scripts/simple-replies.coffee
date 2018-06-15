@@ -31,12 +31,12 @@ module.exports = (robot) ->
    robot.hear /I like pie/i, (res) ->
      res.emote "makes a freshly baked pie :pie:"
   
-   lulz = ['lol', 'rofl', 'lmao', 'lulz', 'l o l']
+   lulz = ['lol', 'rofl', 'lmao', 'lulz', 'heh', 'ha', 'l o l']
 
    robot.listen(
     (message) ->
       return false unless message.text
-      match = message.text.match /lulz|lol|lmao|l o l|rofl/i
+      match = message.text.match /ha|heh|lulz|lol|lmao|l o l|rofl/i
       if match and Math.random() > 0.95 
         return true
       else 
@@ -45,9 +45,6 @@ module.exports = (robot) ->
       response.send response.random lulz
    )
 
-#   robot.hear /lulz|lol|lmao|l o l|rofl/i, (res) ->
-#     res.send res.random lulz
-  
    robot.topic (res) ->
      res.send "#{res.message.text}? That's a Paddlin'"
   
