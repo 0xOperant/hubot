@@ -22,7 +22,6 @@
     "axios": "~0.14.0",
     "es6-promise": "~3.2.0",
     "async": "2.1.4",
-    "coffee-script": "~1.6",
     "pg-promise": "^5.4.5",
     "redis": "~0.9.1"
   },
