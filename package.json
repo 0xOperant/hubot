@@ -18,7 +18,13 @@
     "hubot-scripts": "^2.17.2",
     "hubot-shipit": "^0.2.1",
     "hubot-slack": "^4.5.0",
-    "hubot-vtr-scripts": ">= 1.0.7"
+    "hubot-vtr-scripts": ">= 1.0.7",
+    "axios": "~0.14.0",
+    "es6-promise": "~3.2.0",
+    "async": "2.1.4",
+    "coffee-script": "~1.6",
+    "pg-promise": "^5.4.5",
+    "redis": "~0.9.1"
   },
   "engines": {
     "node": "4.x"
