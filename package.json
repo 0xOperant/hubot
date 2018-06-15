@@ -5,6 +5,9 @@
   "author": "operant dbell@operant.io",
   "description": "Just A Rather Very Intelligent System (J.A.R.V.I.S.)",
   "dependencies": {
+    "async": "2.1.4",
+    "axios": "~0.14.0",
+    "es6-promise": "~3.2.0",
     "hubot": "^2.19.0",
     "hubot-aftership": "^1.0.7",
     "hubot-diagnostics": "0.0.2",
@@ -12,6 +15,7 @@
     "hubot-help": "^0.2.2",
     "hubot-heroku-keepalive": "^1.0.3",
     "hubot-maps": "0.0.3",
+    "hubot-markov": "^2.0.0",
     "hubot-pugme": "^0.1.1",
     "hubot-redis-brain": "0.0.4",
     "hubot-rules": "^0.1.2",
@@ -19,9 +23,6 @@
     "hubot-shipit": "^0.2.1",
     "hubot-slack": "^4.5.0",
     "hubot-vtr-scripts": ">= 1.0.7",
-    "axios": "~0.14.0",
-    "es6-promise": "~3.2.0",
-    "async": "2.1.4",
     "pg-promise": "^5.4.5",
     "redis": "~0.9.1"
   },
