@@ -21,6 +21,7 @@
     "hubot-rules": "^0.1.2",
     "hubot-scripts": "^2.17.2",
     "hubot-slack": "^4.5.0",
+    "hubot-voting": "^1.1.0",
     "hubot-vtr-scripts": ">= 1.0.7",
     "pg-promise": "^5.4.5",
     "redis": "~0.9.1"
