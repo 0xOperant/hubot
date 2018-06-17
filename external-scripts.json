@@ -11,5 +11,6 @@
   "hubot-markov",
   "hubot-voting",
   "hubot-auth",
+  "hubot-ansible",
   "hubot-vtr-scripts"
 ]
