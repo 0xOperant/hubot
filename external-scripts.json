@@ -10,5 +10,6 @@
   "hubot-aftership",
   "hubot-markov",
   "hubot-voting",
+  "hubot-auth",
   "hubot-vtr-scripts"
 ]
