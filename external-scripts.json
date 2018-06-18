@@ -12,6 +12,5 @@
   "hubot-voting",
   "hubot-auth",
   "hubot-ansible",
-  "hubot-better-help",
   "hubot-vtr-scripts"
 ]
