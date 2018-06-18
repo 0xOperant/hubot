@@ -25,6 +25,7 @@
     "hubot-slack": "^4.5.0",
     "hubot-voting": "^1.1.0",
     "hubot-vtr-scripts": ">= 1.0.7",
+    "hubot-yelp": "^0.2.1",
     "pg-promise": "^5.4.5",
     "redis": "~0.9.1"
   },
