@@ -5,7 +5,7 @@ module.exports = (robot) ->
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
     secret = data.secret
     token = data.token
-    key = totallyrandomstring
+    key = "totallyrandomstring"
 
     if token = key
       robot.messageRoom room, "#{secret}"
