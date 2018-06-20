@@ -5,6 +5,6 @@ module.exports = (robot) ->
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
     secret = data.secret
 
-    robot.messageRoom room, ":rotating_light: *WUDS Alert:* I have a secret: #{secret}"
+    robot.messageRoom room, "#{secret}"
 
     res.send 'OK'
