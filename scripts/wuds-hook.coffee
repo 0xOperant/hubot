@@ -6,7 +6,7 @@ module.exports = (robot) ->
     secret = data.secret
     token = data.token
 
-    if (token === "totallyrandomstring") {
+    if (token == "totallyrandomstring") {
       robot.messageRoom room, "#{secret}";
     } 
 
