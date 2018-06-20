@@ -4,8 +4,8 @@ module.exports = (robot) ->
     room   = req.params.room
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
     secret = data.secret
-    token = totallyrandomstring
+    token = data.token
 
-    robot.messageRoom room, "#{secret}"
+    robot.messageRoom room, "#{secret}, #{token}"
 
     res.send 'OK'
