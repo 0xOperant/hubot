@@ -3,11 +3,11 @@ module.exports = (robot) ->
   robot.router.post '/hubot/chatsecrets/:room', (req, res) ->
     room   = req.params.room
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
-    secret = data.secret
+    text = data.text
     token = data.token
-    key = "totallyrandomstring"
+    key = process.env.WUDS_TOKEN
 
     if token is key
-      robot.messageRoom room, "#{secret}, #{token}, #{key}"
+      robot.messageRoom room, "#{text}"
       res.send '200'
     else res.send '404'
