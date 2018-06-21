@@ -19,7 +19,7 @@ module.exports = (robot) ->
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
     text   = data.text
     token  = req.headers.authorization
-    key    = "3UQVTzu3rPT4sAcuxv8J"
+    key    = "Bearer 3UQVTzu3rPT4sAcuxv8J"
 
     if token is key
       robot.messageRoom room, "#{text}"
