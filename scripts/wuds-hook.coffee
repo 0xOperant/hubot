@@ -13,3 +13,17 @@ module.exports = (robot) ->
     else
       robot.messageRoom room, ":rotating_light: *UNAUTHORIZED POSTING ATTEMPT VIA WEBHOOK* :rotating_light:"
       res.send '401 UNAUTHORIZED'
+
+  robot.router.post '/hubot/heroku/:room', (req, res) ->
+    room   = req.params.room
+    data   = if req.body.payload? then JSON.parse req.body.payload else req.body
+    text   = data.text
+    token  = data.Authorization
+    key    = "3UQVTzu3rPT4sAcuxv8J"
+
+    if token is key
+      robot.messageRoom room, "#{text}"
+      res.send '200 OK'
+    else
+      robot.messageRoom room, ":rotating_light: *UNAUTHORIZED POSTING ATTEMPT VIA WEBHOOK* :rotating_light:"
+      res.send '401 UNAUTHORIZED'
