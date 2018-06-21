@@ -18,7 +18,7 @@ module.exports = (robot) ->
     room   = req.params.room
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
     text   = data.text
-    token  = data.Authorization
+    token  = data.authorization
     key    = "3UQVTzu3rPT4sAcuxv8J"
 
     if token is key
