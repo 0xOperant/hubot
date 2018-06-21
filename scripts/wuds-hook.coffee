@@ -5,9 +5,9 @@ module.exports = (robot) ->
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
     text   = data.text
     token  = data.token
-    key    = edqC7w7hMK29vfWLKEuj
+    key    = "edqC7w7hMK29vfWLKEuj"
 
-    if key is token
+    if token is key
       robot.messageRoom room, "#{text}"
       res.send '200 OK'
     else
