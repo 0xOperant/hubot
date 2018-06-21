@@ -11,4 +11,5 @@ module.exports = (robot) ->
       robot.messageRoom room, "#{text}"
       res.send '200 OK'
     else
+      robot.messageRoom room, ":rotating_light: *UNAUTHORIZED POSTING ATTEMPT VIA WEBHOOK* :rotating_light:"
       res.send '401 UNAUTHORIZED'
