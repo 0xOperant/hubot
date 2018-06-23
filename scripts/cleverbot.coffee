@@ -23,4 +23,4 @@ module.exports = (robot) ->
 
   robot.respond /#! (.*)/i, (msg) ->
     data = msg.match[1].trim()
-    cleverbot.write(data, (response) => msg.send(response.output))
+    bot.ask(data, (response) => msg.send(response.output))
