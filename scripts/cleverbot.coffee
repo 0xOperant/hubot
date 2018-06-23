@@ -25,4 +25,4 @@ module.exports = (robot) ->
     bot = new Cleverbot(USER, KEY)
     callback = (response) ->
       msg.send response.message
-    bot.write(query, callback)
+    bot.ask(query, callback)
