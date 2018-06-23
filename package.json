@@ -7,6 +7,7 @@
   "dependencies": {
     "async": "2.1.4",
     "axios": "~0.14.0",
+    "cleverbot.io": "^1.0.4",
     "es6-promise": "~3.2.0",
     "hubot": "^2.19.0",
     "hubot-aftership": "^1.0.7",
