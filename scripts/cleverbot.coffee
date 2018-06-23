@@ -9,7 +9,7 @@
 #   CLEVERBOTIO_API_KEY
 #
 # Commands:
-#   hubot !# <input>
+#   hubot !# <input> (chat via cleverbot.io api)
 #
 # Author:
 #   operant
