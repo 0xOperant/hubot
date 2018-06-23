@@ -9,7 +9,7 @@
 #   CLEVERBOTIO_API_KEY
 #
 # Commands:
-#   hubot #! <input> (chat via cleverbot.io api)
+#   hubot clever <input> (chat via cleverbot.io api)
 #
 # Author:
 #   operant
@@ -17,12 +17,12 @@
 USER = process.env.CLEVERBOTIO_API_USER
 KEY = process.env.CLEVERBOTIO_API_KEY
 
-Cleverbot = require("cleverbot.io")
+Cleverbot = require('cleverbot.io')
 
 module.exports = (robot) ->
-  robot.respond /#! (.*)/i, (msg) ->
+  robot.respond /clever (.*)/i, (msg) ->
     query = msg.match[1].trim()
     bot = new Cleverbot(USER, KEY)
     callback = (response) ->
       msg.send response.message
-    bot.ask(query, callback)
+    bot.write(query, callback)
