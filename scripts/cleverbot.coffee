@@ -18,7 +18,7 @@ USER = process.env.CLEVERBOTIO_API_USER
 KEY = process.env.CLEVERBOTIO_API_KEY
 
 module.exports = (robot) ->
-  cleverbot = require("cleverbot.io"),
+  cleverbot = require("cleverbot.io")
   bot = new cleverbot(USER, KEY);
 
   robot.respond /!# (.*)/i, (msg) ->
