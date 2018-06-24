@@ -52,7 +52,7 @@ module.exports = (robot) ->
           pwnedSites = ""
           i = 0
           while i < body.length
-            pwnedSites += "#{body[i].Name}\n"
+            pwnedSites += "#{body[i].Source}\n"
             i++
           res.send ":sob: Yes, #{account} has been found on the following pastes:\n```#{pwnedSites}```"
           return
