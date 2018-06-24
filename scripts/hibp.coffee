@@ -15,14 +15,13 @@
 #   belldavidr (adapted from neufeldtech)
 
 module.exports = (robot) ->
-  robot.hear /(?:has|is) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (msg) ->
+  robot.respond /(?:has|is) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (msg) ->
     email = msg.match[1]
     robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email)
-      .header('Accept', 'application/json')
       .get() (err, res, body) ->
-        if err
-          res.send "Encountered an error :( #{err}"
+        if response.statusCode is 404
+          res.send "You're in the clear; #{email} not found."
           return
 
         body = JSON.parse(body)
-        res.send "#{body.name}"
+        res.send "#{email} was found in the following breach(es): #{body.name}"
