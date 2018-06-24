@@ -9,8 +9,8 @@
 #   HUBOT_GOOGLE_IMAGES_FALLBACK - The URL to use when API fails. `{q}` will be replaced with the query string.
 #
 # Commands:
-#   hubot *image me* `query` - Queries Google Images for `query` and returns a random top result.
-#   hubot *animate me* `query` - The same thing as `image me`, but tries to return a GIF instead.
+#   hubot *image me `query`* - queries Google Images for `query` and returns a random top result
+#   hubot *animate me `query`* - queries Google Images for `query` and tries to return a random GIF
 #
 # Author:
 #   originally hubot-scripts

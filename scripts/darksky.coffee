@@ -10,8 +10,8 @@
 #   HUBOT_DARK_SKY_UNITS (optional - us, si, ca, or uk)
 #
 # Commands:
-#   hubot *weather* - Get the weather for default location `23322`
-#   hubot *weather* `location` - Get the weather for `location`
+#   hubot *weather* - get the weather for default location `23322`
+#   hubot *weather `location`* - get the weather for `location`
 #
 # Notes:
 #   If HUBOT_DARK_SKY_DEFAULT_LOCATION is blank, weather commands without a location will be ignored
