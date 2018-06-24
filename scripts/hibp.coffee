@@ -36,9 +36,9 @@ module.exports = (robot) ->
           res.send ":sob: Yes, #{email} was in the following breaches:\n```#{pwnedSites}```"
           return
 
-  robot.respond /(?:has|is) (?:user|username) username (.*) (?:been )?pwned\??/i, (res) ->
-    username = res.match[3]
-    url = "https://https://haveibeenpwned.com/api/v2/pasteaccount/#{username}"
+  robot.respond /(?:has|is) (?:user|username) (.*) (?:been )?pwned\??/i, (res) ->
+    username = res.match[2]
+    url = "https://haveibeenpwned.com/api/v2/pasteaccount/#{username}"
     robot.http(url).get() (err, response, body) ->
       if err
           res.send ":disappointed: Encountered an error: #{err}"
