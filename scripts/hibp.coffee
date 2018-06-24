@@ -19,6 +19,7 @@ module.exports = (robot) ->
     email = msg.match[1]
     robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email)
     .get() (err, res, body) ->
+      body = JSON.parse(body)
       msg.send "#{body}"
       if err
         res.send "Encountered an error :( #{err}"
