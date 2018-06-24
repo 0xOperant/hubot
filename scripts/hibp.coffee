@@ -8,15 +8,15 @@
 #  None
 #
 # Commands:
-#  hubot *has `email address` been pwned?* - queries haveibeenpwned.com for specified `email address`
+#  hubot *hibp check `email address`* - queries haveibeenpwned.com for specified `email address`
 #
 # Author:
 #   belldavidr adapted from neufeldtech
 
 module.exports = (robot) ->
-  robot.respond /(?:has|is) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (res) ->
+  robot.hear /hibp check (\S+@\w+\.\w+)/i, (res) ->
     account = res.match[1]
-    url = "https://haveibeenpwned.com/api/v2/breachedaccount/#{account}?truncateResponse=true&includeUnverified=true"
+    url = "https://haveibeenpwned.com/api/v2/breachedaccount/#{account}?truncateResponse=false&includeUnverified=true"
     robot.http(url).get() (err, response, body) ->
       if err
         res.send ":disappointed: Encountered an error: #{err}"
