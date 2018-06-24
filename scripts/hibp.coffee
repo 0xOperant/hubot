@@ -17,7 +17,7 @@
 module.exports = (robot) ->
   robot.respond /(?:has|is|was) (email|username) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (res) ->
     account = res.match[1]
-    if email in res.match[0]
+    if "email" in res.match[0]
       url = "https://haveibeenpwned.com/api/v2/breachedaccount/#{account}?truncateResponse=true&includeUnverified=true"
     else
       url = "https://haveibeenpwned.com/api/v2/pasteaccount/#{account}"
