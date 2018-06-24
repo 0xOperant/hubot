@@ -25,7 +25,7 @@ module.exports = (robot) ->
       else
         if res.statusCode == 200
           body = JSON.parse(body)
-          res.send "#{body"
+          res.send "#{body}"
           pwnedSites = ""
           i = 0
           while i < body.length
