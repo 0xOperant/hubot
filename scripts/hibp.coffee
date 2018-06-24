@@ -19,16 +19,11 @@ module.exports = (robot) ->
     email = msg.match[1]
     robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email)
     .get() (err, res, body) ->
-      body = JSON.parse(body)
-      msg.send "#{body}"
       if err
         res.send "Encountered an error :( #{err}"
         return
-      else if res.statusCode == 403
-          msg.send "you need a user agent"
       else
         if res.statusCode == 200
-          msg.send "HTTP 200 OK"
           body = JSON.parse(body)
           pwnedSites = ""
           i = 0
@@ -36,10 +31,4 @@ module.exports = (robot) ->
             pwnedSites += "#{body[i].Domain}\n"
             i++
           msg.send "Yes, #{email} has been pwned :sob:\n```#{pwnedSites}```"
-          return
-        else if res.statusCode == 404
-          msg.send "Nope, #{email} has not been pwned :tada:"
-          return
-        else
-          msg.send "Encountered an error :("
           return
