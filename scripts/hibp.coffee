@@ -32,3 +32,9 @@ module.exports = (robot) ->
             i++
           msg.send "Yes, #{email} has been pwned :sob:\n```#{pwnedSites}```"
           return
+        else if res.statusCode == 404
+          msg.send "Nope, #{email} has not been pwned :tada:"
+          return
+        else
+          msg.send "Encountered an error :("
+          return
