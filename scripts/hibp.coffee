@@ -6,7 +6,7 @@
 #
 # Configuration:
 #  None
-
+#
 # Commands:
 #  hibp <email>
 #
