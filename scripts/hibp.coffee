@@ -23,18 +23,20 @@ module.exports = (robot) ->
         res.send "Encountered an error :( #{err}"
         return
       else
-        if res.statusCode == 200
-          body = JSON.parse(body)
-          pwnedSites = ""
-          i = 0
-          while i < body.length
-            pwnedSites += "#{body[i].Domain}\n"
-            i++
-          msg.send "Yes, #{email} has been pwned :sob:\n```#{pwnedSites}```"
-          return
-        else if res.statusCode == 404
-          msg.send "Nope, #{email} has not been pwned :tada:"
-          return
-        else
-          msg.send "Encountered an error :("
-          return
+        body = JSON.parse(body)
+        res.send "#{body}"
+#        if res.statusCode == 200
+#          body = JSON.parse(body)
+#          pwnedSites = ""
+#          i = 0
+#          while i < body.length
+#            pwnedSites += "#{body[i].Domain}\n"
+#            i++
+#          msg.send "Yes, #{email} has been pwned :sob:\n```#{pwnedSites}```"
+#          return
+#        else if res.statusCode == 404
+#          msg.send "Nope, #{email} has not been pwned :tada:"
+#          return
+#        else
+#          msg.send "Encountered an error :("
+#          return
