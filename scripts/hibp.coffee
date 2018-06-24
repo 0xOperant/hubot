@@ -8,14 +8,14 @@
 #  None
 #
 # Commands:
-#  hubot *hibp check email* <email> - queries haveibeenpwned.com for specified 'email' address
-#  hubot *hibp check pastes* <username> - queries haveibeenpwned.com for specified 'username'
+#  hubot *has  `email` been pwned?* - queries haveibeenpwned.com for specified 'email' address
+#  hubot *has `username` been pwned?* - queries haveibeenpwned.com for specified 'username'
 #
 # Author:
 #   belldavidr (adapted from neufeldtech)
 
 module.exports = (robot) ->
-  robot.hear /hibp check email (\S+@\w+\.\w+)/i, (msg) ->
+  robot.hear /(?:has|is) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (msg) ->  
     email = msg.match[1]
     robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email+"/?truncateResponse=true&includeUnverified=true")
     .get() (err, res, body) ->
@@ -25,7 +25,6 @@ module.exports = (robot) ->
       else
         if res.statusCode == 200
           body = JSON.parse(body)
-          msg.send "#{body}"
           pwnedSites = ""
           i = 0
           while i < body.length
@@ -33,14 +32,14 @@ module.exports = (robot) ->
             i++
           msg.send "Yes, #{email} has been pwned :sob:\n```#{pwnedSites}```"
           return
-        else if res.statusCode == 404
-          msg.send "Nope, #{email} has not been pwned :tada:"
-          return
+        #else if res.statusCode == 404
+        #  msg.send "Nope, #{email} has not been pwned :tada:"
+        #  return
         else
           msg.send "Encountered an error :("
           return
 
-#  robot.hear /hibp check pastes (.*)/i, (msg) ->
+#  robot.hear /(?:has|is) (.*) (?:been )?pwned\??/i, (msg) ->>
 #    paste = msg.match[1]
 #    robot.http("https://haveibeenpwned.com/api/v2/pasteaccount/"+paste)
 #    .get() (err, res, body) ->
