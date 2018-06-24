@@ -35,9 +35,9 @@ module.exports = (robot) ->
         #else if res.statusCode == 404
         #  msg.send "Nope, #{email} has not been pwned :tada:"
         #  return
-        else
-          msg.send "Encountered an error :("
-          return
+        #else
+        #  msg.send "Encountered an error :("
+        #  return
 
 #  robot.hear /(?:has|is) (.*) (?:been )?pwned\??/i, (msg) ->>
 #    paste = msg.match[1]
