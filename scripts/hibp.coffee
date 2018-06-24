@@ -8,7 +8,7 @@
 #  None
 #
 # Commands:
-#  hibp <email>
+#  *hibp* <email> - queries haveibeenpwned.com for specified 'email' address
 #
 # Author:
 #   belldavidr (adapted from neufeldtech)

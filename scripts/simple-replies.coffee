@@ -24,7 +24,7 @@ module.exports = (robot) ->
      res.reply res.random coin
 
 #respond to greetings   
-   greets = ['hello', 'hi', 'oh hai', 'hey there', 'sup', 'greetz', 'yo', 'what up']
+   greets = ['hello', 'oh hai', 'hey there', 'sup', 'greetz', 'yo', 'what up']
    robot.respond /welcome|hello|hi|sup|hey/i, (res) ->
      res.reply res.random greets
 
