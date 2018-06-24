@@ -16,7 +16,7 @@
 
 module.exports = (robot) ->
   robot.respond /(?:has|is|was) (?:email) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (res) ->
-    email = res.match[1]
+    email = res.match[2]
     url = "https://haveibeenpwned.com/api/v2/breachedaccount/#{email}?truncateResponse=true&includeUnverified=true"
     robot.http(url).get() (err, response, body) ->
       if err
@@ -41,18 +41,18 @@ module.exports = (robot) ->
     url = "https://haveibeenpwned.com/api/v2/pasteaccount/#{account}"
     robot.http(url).get() (err, response, body) ->
       if err
-          res.send ":disappointed: Encountered an error: #{err}"
+        res.send ":disappointed: Encountered an error: #{err}"
+        return
+      else if response.statusCode is 404
+        res.send ":tada: You're in the clear; #{account} not found! :tada:"
+        return
+      else
+        if response.statusCode == 200
+          body = JSON.parse(body)
+          pwnedSites = ""
+          i = 0
+          while i < body.length
+            pwnedSites += "#{body[i].Name}\n"
+            i++
+          res.send ":sob: Yes, #{account} has been found on the following pastes:\n```#{pwnedSites}```"
           return
-        else if response.statusCode is 404
-          res.send ":tada: You're in the clear; #{account} not found! :tada:"
-          return
-        else
-          if response.statusCode == 200
-            body = JSON.parse(body)
-            pwnedSites = ""
-            i = 0
-            while i < body.length
-              pwnedSites += "#{body[i].Name}\n"
-              i++
-            res.send ":sob: Yes, #{account} has been found on the following pastes:\n```#{pwnedSites}```"
-            return
