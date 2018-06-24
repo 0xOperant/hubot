@@ -12,11 +12,12 @@
 #  hubot *has `username` been pwned?* - queries haveibeenpwned.com for specified 'username'
 #
 # Author:
-#   belldavidr (adapted from neufeldtech)
+#   belldavidr
 
 module.exports = (robot) ->
   robot.respond /(?:has|is) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (res) ->
     email = res.match[1]
+    res.send "checking haveibeenpwned.com for  #{email}..."
     robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email)
       .get() (err, response, body) ->
         if response.statusCode is 404
