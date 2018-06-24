@@ -24,8 +24,8 @@ module.exports = (robot) ->
      res.reply res.random coin
 
 #respond to greetings   
-   greets = ['hello', 'oh hai', 'hey there', 'sup', 'greetz', 'yo', 'what up']
-   robot.respond /welcome|hello|hi|sup|hey/i, (res) ->
+   greets = ['hi', 'hello', 'oh hai', 'hey there', 'sup', 'greetz', 'yo', 'what up']
+   robot.respond /welcome|hello|sup|hey/i, (res) ->
      res.reply res.random greets
 
 #listen for "badger" and post to channel
