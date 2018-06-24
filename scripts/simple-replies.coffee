@@ -8,10 +8,10 @@
 #   None
 #
 # Commands:
-#   hubot toss|flip a coin - Randomly returns heads or tails
-#   hubot have a beer - Give jarvis a beer! Not too many though, we have work to do...
-#   hubot sleep it off - For when jarvis has had too many beers
-#   hubot open the <doors> doors - Open the specified doors
+#   hubot *coin* `toss|flip` - Randomly returns heads or tails
+#   hubot *have a beer* - Give jarvis a beer! Not too many though, we have work to do...
+#   hubot *sleep it off* - For when jarvis has had too many beers
+#   hubot *open the `doors` doors* - Open the specified doors, just not pod bay!
 #
 # Author:
 #   belldavidr

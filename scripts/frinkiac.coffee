@@ -8,9 +8,9 @@
 #   None
 #
 # Commands:
-#   hubot simpsons me <query> | <caption override> - displays a screenshot from The Simpsons related to your search
-#   hubot futurama me <query> | <caption override> - displays a screenshot from Futurama related to your search
-#   hubot multiverse me <query> | <caption override> - displays a screenshot from Rick and Morty  related to your search
+#   hubot *simpsons me* `query` | `caption override` - displays a screenshot from The Simpsons
+#   hubot *futurama me* `query` | `caption override` - displays a screenshot from Futurama
+#   hubot *multiverse me* `query` | `caption override` - displays a screenshot from Rick and Morty
 #
 # Notes:
 #   None

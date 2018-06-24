@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   hubot rick me - Gets quote from loremricksum.com api and posts to the current channel
+#   hubot *rick me* - Gets quote from loremricksum.com api and posts to the current channel
 #
 # Author:
 #   belldavidr

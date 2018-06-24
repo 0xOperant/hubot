@@ -8,9 +8,9 @@
 #   None
 #
 # Commands:
-#   hubot meme list - List of memes and their codes
-#   hubot meme show - Show all memes and their codes
-#   hubot meme me (meme) "top message" "bottom message"
+#   hubot *meme list* - List of memes and their codes
+#   hubot *meme show* - Show all memes and their codes
+#   hubot *meme me* `meme` `top message` `bottom message` - gives you a custom meme
 #
 # Author:
 #   lilybethshields
