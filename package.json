@@ -19,13 +19,10 @@
     "hubot-heroku-keepalive": "^1.0.3",
     "hubot-maps": "0.0.3",
     "hubot-markov": "^2.0.0",
-    "hubot-pugme": "^0.1.1",
     "hubot-redis-brain": "0.0.4",
-    "hubot-rules": "^0.1.2",
     "hubot-scripts": "^2.17.2",
     "hubot-slack": "^4.5.0",
     "hubot-voting": "^1.1.0",
-    "hubot-vtr-scripts": ">= 1.0.7",
     "pg-promise": "^5.4.5",
     "redis": "~0.9.1"
   },

@@ -3,14 +3,11 @@
   "hubot-help",
   "hubot-heroku-keepalive",
   "hubot-google-images",
-  "hubot-pugme",
   "hubot-maps",
   "hubot-redis-brain",
-  "hubot-rules",
   "hubot-aftership",
   "hubot-markov",
   "hubot-voting",
   "hubot-auth",
   "hubot-ansible",
-  "hubot-vtr-scripts"
 ]
