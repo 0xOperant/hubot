@@ -14,7 +14,7 @@
 #   belldavidr adapted from neufeldtech
 
 module.exports = (robot) ->
-  robot.respond /hibp check (\S+@\w+\.\w+)/i, (res) ->
+  robot.respond /hibp (?:check|has|is|was) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (res) ->
     account = res.match[1]
     url = "https://haveibeenpwned.com/api/v2/breachedaccount/#{account}?truncateResponse=false&includeUnverified=true"
     robot.http(url).get() (err, response, body) ->
