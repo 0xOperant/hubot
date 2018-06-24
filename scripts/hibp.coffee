@@ -9,7 +9,7 @@
 #
 # Commands:
 #  hubot *has email `email` been pwned?* - queries haveibeenpwned.com for specified `email` address
-#  hubot *has username `username` been pwned?* - queries haveibeenpwned.com for specified `username`
+#  hubot *has username `username` been pwned?* - queries haveibeenpwned.com paste scrapes for specified `username`
 #
 # Author:
 #   belldavidr adapted from neufeldtech
@@ -36,7 +36,7 @@ module.exports = (robot) ->
           res.send ":sob: Yes, #{email} was in the following breaches:\n```#{pwnedSites}```"
           return
 
-  robot.respond /(?:has|is|was) (?:user|username) (.*) (?:been )?pwned\??/i, (res) ->
+  robot.respond /has username (.*) been pwned/i, (res) ->
     account = res.match[1]
     url = "https://haveibeenpwned.com/api/v2/pasteaccount/#{account}"
     robot.http(url).get() (err, response, body) ->
