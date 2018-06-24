@@ -1,5 +1,17 @@
+# Description:
+#   Gets quote from loremricksum.com api and posts to the current channel 
+#
+# Dependencies:
+#   None
+#
+# Configuration:
+#   None
+#
 # Commands:
 #   hubot rick me - Gets quote from loremricksum.com api and posts to the current channel
+#
+# Author:
+#   belldavidr
 
 module.exports = (robot) ->
   robot.respond /rick me/i, (res) ->
@@ -7,20 +19,8 @@ module.exports = (robot) ->
       .header('Accept', 'application/json')
       .get() (err, response, body) ->
         if response.statusCode isnt 200
-          res.send "Request didn't come back HTTP 200 :("
+          res.send "T-t-t-that didn't *buuurrrp* work, broh."
           return
 
         quote = JSON.parse body
         res.send "#{quote.data}"
-
-#  robot.respond /ricksum (.*), (.*)/i, (res) ->
-#    p = escape(res.match[1])
-#    q = escape(res.match[2])
-#    robot.http("http://loremricksum.com/api/?paragraphs=#{p}&quotes=#{q}")
-#    .get() (err, response, body) ->
-#        if response.statusCode isnt 200
-#          res.send "Request didn't come back HTTP 200 :("
-#          return
-#
-#        quote = JSON.parse body
-#        res.send "#{quote.data}"
