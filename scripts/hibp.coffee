@@ -17,9 +17,9 @@
 module.exports = (robot) ->
   robot.hear /(?:has|is) (\S+@\w+\.\w+) (?:been )?pwned\??/i, (msg) ->
     email = msg.match[1]
-    url = robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email)
-    msg.send "#{url}"
+    robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email)
     .get() (err, res, body) ->
+      msg.send "#{body}"
       if err
         res.send "Encountered an error :( #{err}"
         return
