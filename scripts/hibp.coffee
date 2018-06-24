@@ -31,7 +31,7 @@ module.exports = (robot) ->
           pwnedSites = ""
           i = 0
           while i < body.length
-            pwnedSites += "#{body[i].Domain}\n"
+            pwnedSites += "#{body[i].Name}\n"
             i++
           res.send "Yes, #{email} has been pwned :sob:\n```#{pwnedSites}```"
           return
