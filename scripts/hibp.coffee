@@ -19,6 +19,10 @@ module.exports = (robot) ->
     email = msg.match[1]
     robot.http("https://haveibeenpwned.com/api/v2/breachedaccount/"+email+"/?truncateResponse=true&includeUnverified=true")
     .get() (err, res, body) ->
+    body = JSON.parse(body)
+    stus = res.statusCode
+    msg.send "#{status}"
+    msg.send "#{body}"
       if err
         res.send "Encountered an error :( #{err}"
         return
