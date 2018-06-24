@@ -8,8 +8,8 @@
 #  None
 #
 # Commands:
-#  hubot *has  `email` been pwned?* - queries haveibeenpwned.com for specified 'email' address
-#  hubot *has `username` been pwned?* - queries haveibeenpwned.com for specified 'username'
+#  hubot *has `email` been pwned?* - queries haveibeenpwned.com for specified `email` address
+#  hubot *has `username` been pwned?* - queries haveibeenpwned.com for specified `username`
 #
 # Author:
 #   belldavidr adapted from neufeldtech
@@ -33,5 +33,26 @@ module.exports = (robot) ->
           while i < body.length
             pwnedSites += "#{body[i].Name}\n"
             i++
-          res.send "Yes, #{email} has been pwned :sob:\n```#{pwnedSites}```"
+          res.send ":sob: Yes, #{email} was in the following breaches:\n```#{pwnedSites}```"
           return
+
+  robot.respond /check pastes for (.*)/i, (res) ->
+    username = res.match[3]
+    url = "https://https://haveibeenpwned.com/api/v2/pasteaccount/#{username}"
+    robot.http(url).get() (err, response, body) ->
+      if err
+          res.send ":disappointed: Encountered an error: #{err}"
+          return
+        else if response.statusCode is 404
+          res.send ":tada: You're in the clear; #{username} not found! :tada:"
+          return
+        else
+          if response.statusCode == 200
+            body = JSON.parse(body)
+            pwnedSites = ""
+            i = 0
+            while i < body.length
+              pwnedSites += "#{body[i].Name}\n"
+              i++
+            res.send ":sob: Yes, #{username} has been found on the following pastes:\n```#{pwnedSites}```"
+            return
