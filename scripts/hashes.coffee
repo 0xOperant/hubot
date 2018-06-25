@@ -25,5 +25,5 @@ module.exports = (robot) ->
         return
       else
         crack = JSON.parse body
-        res.send crack.result.hash.plain
+        res.send crack.status
         return
