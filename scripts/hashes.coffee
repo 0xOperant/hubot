@@ -25,5 +25,5 @@ module.exports = (robot) ->
         return
       else
         plain = JSON.stringify body
-        res.send plain.result
+        res.send plain.status
         return
