@@ -24,6 +24,6 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching hashes: #{err}"
         return
       else
-        check = JSON.parse(body, ['plain', 'algorithm'])
+        check = JSON.stringify(body, ['result, ['plain', 'algorithm']']')
         res.send check
         return
