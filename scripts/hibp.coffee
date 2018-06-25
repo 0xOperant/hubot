@@ -42,7 +42,7 @@ module.exports = (robot) ->
         return
       else
         if response.statusCode is 404
-          res.send ":tada: {account} not found in any pastes! :tada:"
+          res.send ":tada: #{account} not found in any pastes! :tada:"
           return
         else
           if response.statusCode == 200
