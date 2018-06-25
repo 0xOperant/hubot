@@ -25,7 +25,7 @@ module.exports = (robot) ->
         return
       else
         plain = JSON.parse(body).result
-        res.send plain
+        res.send #{plain}
 #        plaintext = body.result.#{hash}.plain
 #        alg = body.result.#{hash}.algorithm
 #        res.send ":exclamation: cracked!  hash: `#{hash}` plaintext: `#{plaintext}`, algorithm: `#{alg}`"
