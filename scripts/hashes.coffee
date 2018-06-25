@@ -30,5 +30,5 @@ module.exports = (robot) ->
             res.send ":disappointed: Hash not found.  Ask @dave to crack it? :smiling_imp:"
             return
           else
-            res.send ":exclamation: Cracked!  Hash: `#{hash}` plaintext: `#{result}`"
+            res.send ":exclamation: Cracked!  Hash: `#{hash}` plaintext: `#{body.result.plain}`"
             return
