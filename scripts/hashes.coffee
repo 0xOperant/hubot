@@ -27,9 +27,9 @@ module.exports = (robot) ->
         body = JSON.parse(body)
         plaintext = body.result.#{hash}.plain
         alg = body.result.#{hash}.algorithm
-        if body.result is 'null'
-          res.send ":disappointed: hash not found.  Ask @dave to crack it? :smiling_imp:"
-          return
-        else
-          res.send ":exclamation: cracked!  hash: `#{hash}` plaintext: `#{plaintext}`, algorithm: `#{alg}`"
-          return
+          if body.result is 'null'
+            res.send ":disappointed: hash not found.  Ask @dave to crack it? :smiling_imp:"
+            return
+          else
+            res.send ":exclamation: cracked!  hash: `#{hash}` plaintext: `#{plaintext}`, algorithm: `#{alg}`"
+            return
