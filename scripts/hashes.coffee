@@ -24,6 +24,6 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching hashes: #{err}"
         return
       else
-        plain = result.#{hash}.plain
+        plain = JSON.stringify(result.#{hash}.plain)
         res.send plain
         return
