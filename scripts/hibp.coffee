@@ -16,14 +16,15 @@
 module.exports = (robot) ->
   robot.respond /hibp (?:check) (\S+@\w+\.\w+)/i, (res) ->
     account = res.match[1]
-    url = "https://haveibeenpwned.com/api/v2/breachedaccount/#{account}?truncateResponse=false&includeUnverified=true"
-    robot.http(url).get() (err, response, body) ->
+    breach = "https://haveibeenpwned.com/api/v2/breachedaccount/#{account}?includeUnverified=true"
+    pastes = "https://haveibeenpwned.com/api/v2/pasteaccount/#{account}"
+    robot.http(breach).get() (err, response, body) ->
       if err
-        res.send ":disappointed: Encountered an error: #{err}"
+        res.send ":disappointed: Encountered an error while searching breaches: #{err}"
         return
       else
         if response.statusCode is 404
-          res.send ":tada: You're in the clear; #{account} not found! :tada:"
+          res.send ":tada: You're in the clear; #{account} not found in any breaches! :tada:"
           return
         else
           if response.statusCode == 200
@@ -33,5 +34,23 @@ module.exports = (robot) ->
             while i < body.length
               pwnedSites += "#{body[i].Name}\n"
               i++
-            res.send ":sob: Yes, #{account} was in the following:\n```#{pwnedSites}```"
+            res.send ":sob: Yes, #{account} was in the following breaches:\n```#{pwnedSites}```"
+            return
+    robot.http(pastes).get() (err, response, body) ->
+      if err
+        res.send ":disappointed: Encountered an error while searching pastes: #{err}"
+        return
+      else
+        if response.statusCode is 404
+          res.send ":tada: You're in the clear; #{account} not found in any pastes!! :tada:"
+          return
+        else
+          if response.statusCode == 200
+            body = JSON.parse(body)
+            pwnedSites = ""
+            i = 0
+            while i < body.length
+              pwnedSites += "#{body[i].Name}\n"
+              i++
+            res.send ":sob: Yes, #{account} was in the following pastes:\n```#{pwnedSites}```"
             return
