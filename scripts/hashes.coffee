@@ -25,5 +25,5 @@ module.exports = (robot) ->
         return
       else
         check = JSON.parse(body)
-        res.send check.status
+        res.send check.plain
         return
