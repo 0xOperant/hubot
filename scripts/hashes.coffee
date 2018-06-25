@@ -25,5 +25,7 @@ module.exports = (robot) ->
         return
       else
         check = JSON.parse(body)
-        res.send check.status
+        cracked = JSON.parse(check.result."#{hash}")
+        res.send cracked.plain
+        res.send cracked.algorithm
         return
