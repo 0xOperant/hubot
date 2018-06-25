@@ -24,5 +24,6 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching hashes: #{err}"
         return
       else
-        res.send body.status
+        crack = body
+        res.send crack.status
         return
