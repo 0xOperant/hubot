@@ -24,7 +24,7 @@ module.exports = (robot) ->
         return
       else
         if response.statusCode is 404
-          res.send ":tada: You're in the clear; #{account} not found in any breaches! :tada:"
+          res.send ":tada: #{account} not found in any breaches! :tada:"
           return
         else
           if response.statusCode == 200
@@ -34,7 +34,7 @@ module.exports = (robot) ->
             while i < body.length
               pwnedSites += "#{body[i].Name}\n"
               i++
-            res.send ":sob: Yes, #{account} was in the following breaches:\n```#{pwnedSites}```"
+            res.send ":sob: Yes, #{account} was found in the following breach(es):\n```#{pwnedSites}```"
             return
     robot.http(pastes).get() (err, response, body) ->
       if err
@@ -42,7 +42,7 @@ module.exports = (robot) ->
         return
       else
         if response.statusCode is 404
-          res.send ":tada: You're in the clear; #{account} not found in any pastes!! :tada:"
+          res.send ":tada: {account} not found in any pastes! :tada:"
           return
         else
           if response.statusCode == 200
@@ -52,5 +52,5 @@ module.exports = (robot) ->
             while i < body.length
               pwnedSites += "#{body[i].Name}\n"
               i++
-            res.send ":sob: Yes, #{account} was in the following pastes:\n```#{pwnedSites}```"
+            res.send ":sob: Yes, #{account} was in the following paste(s):\n```#{pwnedSites}```"
             return
