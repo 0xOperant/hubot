@@ -20,7 +20,7 @@ module.exports = (robot) ->
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body
     text   = data.text
     token  = data.token
-    key    = process.env('WUDS_TOKEN')
+    key    = process.env.WUDS_TOKEN
 
     if token is key
       robot.messageRoom room, "#{text}"
