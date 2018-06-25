@@ -25,6 +25,6 @@ module.exports = (robot) ->
         return
       else
         #crack = body
-        res.send(JSON.stringify(status))
+        res.send(JSON.stringify(body, ['status']))
         #res.send crack
         return
