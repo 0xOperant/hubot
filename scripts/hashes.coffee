@@ -25,6 +25,6 @@ module.exports = (robot) ->
         return
       else
         status = body["status"]
-        plain = body["result"]["#{hash}"].plain
+        #plain = body["result"]["#{hash}"].plain
         res.send status
-        res.send plain
+        #res.send plain
