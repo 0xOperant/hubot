@@ -25,6 +25,4 @@ module.exports = (robot) ->
         return
       else
         for result of body
-          for result of result
-            plain = ["result"][#{hash}]["plain"]
-          res.send plain
+          res.send result
