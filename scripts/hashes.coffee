@@ -25,7 +25,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        for result of api.result
-          plain = api.result["#{hash}"].plain
-          algo = api.result["#{hash}"].algorithm
-        res.send "#{algo} hash: #{hash} = #{plain}"
+        for entry of api.result
+          plain = api.result[entry].plain
+          algo = api.result[entry].algorithm
+        res.send "#{algo} hash: #{entry} = #{plain}"
