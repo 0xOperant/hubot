@@ -16,7 +16,7 @@ virustotal.setKey process.env.VIRUSTOTAL_API_KEY
 
 module.exports = (robot) ->
   robot.respond /vt url\s+(https?:\/\/[^\s]+)$/i, (msg) ->
-    msg.send "Waiting virustotal response"
+    msg.send "Checking virustotal..."
     virustotal.getUrlReport msg.match[1], (err, res) ->
       if err
         robot.logger.error err
