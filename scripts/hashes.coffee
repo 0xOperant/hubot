@@ -24,7 +24,6 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching hashes: #{err}"
         return
       else
-        res.send body
         api = JSON.parse(body)
         for result of api.result
           plain = api.result["#{hash}"].plain
