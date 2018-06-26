@@ -25,4 +25,5 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        res.send typeof(api)
+        res.send api.status + "dot status"
+        res.send api["status"] + "brace status"
