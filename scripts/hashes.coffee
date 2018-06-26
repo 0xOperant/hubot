@@ -24,7 +24,7 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching hashes: #{err}"
         return
       else
-        status = body["status"]
+        body["status"] = status
         #plain = body["result"]["#{hash}"].plain
         res.send status
         #res.send plain
