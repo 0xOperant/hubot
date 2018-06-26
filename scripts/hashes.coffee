@@ -26,7 +26,7 @@ module.exports = (robot) ->
       else
         for status of body
 	        for result of result
-		        hashres = result.
+		        hashres = result
 		        plain = result.hashres.plain
 		        hex = result.hashres.hex
 		        algo = result.hashres.algorithm
