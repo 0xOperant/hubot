@@ -24,10 +24,8 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching hashes: #{err}"
         return
       else
-        for status of body
+        for result of body
 	        for result of result
-		        hashres = result
-		        plain = result.hashres.plain
-		        hex = result.hashres.hex
-		        algo = result.hashres.algorithm
-        res.send hashres
+		        plain = result.#{hash}.plain
+		        algo = result.#{hash}.algorithm
+        res.send plain
