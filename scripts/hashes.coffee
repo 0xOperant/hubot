@@ -28,4 +28,4 @@ module.exports = (robot) ->
         for entry of api.result
           plain = api.result[entry].plain
           algo = api.result[entry].algorithm
-        res.send "#{algo} hash: #{entry} = #{plain}"
+          res.send "#{algo} hash: #{entry} = #{plain}"
