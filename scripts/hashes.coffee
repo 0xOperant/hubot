@@ -30,3 +30,4 @@ module.exports = (robot) ->
 		           plain = result.plain
 		           hex = result.hex
 		           algo = result.algorithm
+               res.send "#{plain}"
