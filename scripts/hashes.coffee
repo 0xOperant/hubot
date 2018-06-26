@@ -25,7 +25,7 @@ module.exports = (robot) ->
         return
       else
         for status of body
-	        for result of status.result
+	        for result of result
 		        hash = result.#{hash}
 		        plain = result.hash.plain
 		        hex = result.hash.hex
