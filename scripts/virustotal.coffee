@@ -2,13 +2,14 @@
 #   Checks URLs against virustotal reports
 #
 # Configuration:
-#   HUBOT_VT_APIKEY
+#   VIRUSTOTAL_API_KEY from https://developers.virustotal.com/v2.0/reference
 #
 # Commands:
-#   hubot *vt url `url`* - check url against virustotal api
+#   hubot *vt `url`* - check specified url against virustotal api
 #
 # Author:
 #   hashashin
+
 TinyURL = require('tinyurl')
 virustotal = require('virustotal.js')
 virustotal.setKey process.env.VIRUSTOTAL_API_KEY
