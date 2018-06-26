@@ -25,4 +25,4 @@ module.exports = (robot) ->
         return
       else
         for result of body
-          res.send result
+          res.send body
