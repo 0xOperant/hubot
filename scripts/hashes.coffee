@@ -26,6 +26,6 @@ module.exports = (robot) ->
       else
         for result of body
 	        for result of result
-		        plain = result.#{hash}.plain
-		        algo = result.#{hash}.algorithm
+		        plain = result.["#{hash}"].plain
+		        algo = result.["#{hash}"].algorithm
         res.send plain
