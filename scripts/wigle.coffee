@@ -28,16 +28,16 @@ module.exports = (robot) ->
       else
         res.send "Checking wigle.net for #{query}..."
         api = JSON.parse(body)
-          if api.totalResults > "0"
-            for entry of api.results
-              ssid = api.results[entry].ssid
-              lastupdt = api.results[entry].lastupdt
-              road = api.results[entry].road
-              city = api.results[entry].city
-              region = api.results[entry].region
-              country = api.results[entry].country
-              encryption = api.results[entry].encryption
-              if country = "US"
-                res.send "SSID #{ssid} last seen at #{road} in #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
+        if api.totalResults > "0"
+          for entry of api.results
+            ssid = api.results[entry].ssid
+            lastupdt = api.results[entry].lastupdt
+            road = api.results[entry].road
+            city = api.results[entry].city
+            region = api.results[entry].region
+            country = api.results[entry].country
+            encryption = api.results[entry].encryption
+            if country = "US"
+              res.send "SSID #{ssid} last seen at #{road} in #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
         else
           res.send ":disappointed: SSID #{query} not found on wigle.net. "
