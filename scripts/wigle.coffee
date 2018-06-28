@@ -26,6 +26,7 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
         return
       else
+        res.send "Checking wigle.net for #{query}..."
         api = JSON.parse(body)
         if api.totalResults > "0"
           for entry of api.results
