@@ -27,12 +27,13 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        for entry of api
-          ssid = ssid
-          lastupdt = lastupdt
-          road = road
-          city = city
-          region = region
-          country = country
-          encryption = encryption
-          res.send "SSID #{ssid} seen at #{road} #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
+        res.send api.success
+        #for entry of api
+        #  ssid = ssid
+        #  lastupdt = lastupdt
+        #  road = road
+        #  city = city
+        #  region = region
+        #  country = country
+        #  encryption = encryption
+        #  res.send "SSID #{ssid} seen at #{road} #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
