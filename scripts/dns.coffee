@@ -14,7 +14,7 @@
 #   belldavidr
 
 module.exports = (robot) ->
-  robot.respond /nslookup (?:.*) (.*)/i, (res) ->
+  robot.respond /nslookup (.*) (.*)/i, (res) ->
     type = escape(res.match[1])
     host = escape(res.match[2]).slice(9)
     url = "https://dns-api.org/#{type}/#{host}"
@@ -26,7 +26,6 @@ module.exports = (robot) ->
         api = JSON.parse body
         for entry of api
           name = api[entry].name
-          ttl = api[entry].ttl
           type = api[entry].type
           value = api[entry].value
-          res.send "#{name} = #{value}"
+          res.send "#{name} #{type} #{value}"
