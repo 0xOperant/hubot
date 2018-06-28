@@ -29,4 +29,4 @@ module.exports = (robot) ->
           ttl = api[entry].ttl
           type = api[entry].type
           value = api[entry].value
-          res.send "#{host} = #{name} = #{value}"
+          res.send "Queried #{host}:/n #{name} = #{value}/n"
