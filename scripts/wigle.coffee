@@ -26,12 +26,9 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
         return
       else
-        res.send "Checking wigle.net for #{query} in the US..."
+        res.send "Checking wigle.net for #{query}..."
         api = JSON.parse(body)
-        if api.success = "false"
-          res.send "Looks like we've hit the API limit for today. :disappointed:"
-        else
-            if api.totalResults > "0"
+          if api.totalResults > "0"
             for entry of api.results
               ssid = api.results[entry].ssid
               lastupdt = api.results[entry].lastupdt
