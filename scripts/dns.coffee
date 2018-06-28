@@ -14,13 +14,13 @@
 #   belldavidr
 
 module.exports = (robot) ->
-  robot.respond /nslookup (.*) (.*)/i, (res) ->
+  robot.respond /nslookup (?:.*) (.*)/i, (res) ->
     type = escape(res.match[1])
     if type is undefined
-      res.send "You need to specify a server type (MX, for example)"
+      type = "A"
     host = escape(res.match[2]).slice(9)
     if host is undefined
-      res.send "You need to specify a host (gmail.com, for example)"
+    res.send host
     url = "https://dns-api.org/#{type}/#{host}"
     robot.http(url).get() (err, response, body) ->
       if response.statusCode isnt 200
