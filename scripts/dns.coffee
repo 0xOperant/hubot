@@ -20,7 +20,7 @@ module.exports = (robot) ->
       type = "A"
     host = escape(res.match[2]).slice(9)
     if host is undefined
-    res.send host
+      res.send host
     url = "https://dns-api.org/#{type}/#{host}"
     robot.http(url).get() (err, response, body) ->
       if response.statusCode isnt 200
