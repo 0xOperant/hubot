@@ -30,6 +30,7 @@ module.exports = (robot) ->
         for entry of api.results
           ssid = ssid
           lastupdt = lastupdt
+          road = road
           city = city
           region = region
           country = country
