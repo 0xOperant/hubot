@@ -16,11 +16,7 @@
 module.exports = (robot) ->
   robot.respond /nslookup (?:.*) (.*)/i, (res) ->
     type = escape(res.match[1])
-    if typeof(type) == 'undefined'
-      type = "A"
     host = escape(res.match[2]).slice(9)
-    if typeof(host) == 'undefined'
-      res.send "You need to specify a hostname (gmail.com, for example)"
     url = "https://dns-api.org/#{type}/#{host}"
     robot.http(url).get() (err, response, body) ->
       if response.statusCode isnt 200
