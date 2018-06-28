@@ -27,10 +27,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        res.send body
         for entry of api.results
-          trilat = api.results.trilat
-          trilong = api.resilts.trilong
           ssid = api.results.ssid
           lastupdt = api.results.lastupdt
           road = api.results.road
