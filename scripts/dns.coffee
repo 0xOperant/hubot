@@ -29,4 +29,4 @@ module.exports = (robot) ->
           ttl = api[entry].ttl
           type = api[entry].type
           value = api[entry].value
-          res.send "#{host} = #{name}, #{ttl}, #{type}, #{value}"
+          res.send "#{host} = #{name} = #{value}"
