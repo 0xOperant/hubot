@@ -17,7 +17,6 @@ module.exports = (robot) ->
   robot.respond /nslookup (.*) (.*)/i, (res) ->
     type = escape(res.match[1])
     host = escape(res.match[2]).slice(9)
-    res.send "host = #{host}"
     url = "https://dns-api.org/#{type}/#{host}"
     robot.http(url).get() (err, response, body) ->
       if response.statusCode isnt 200
@@ -25,7 +24,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse body
-        for result in api.body
-          name = api.result.name
-          value = api.result.value
+        for entry of api
+          name = api.entry.name
+          value = api.entry.value
           res.send "#{name} = #{value}"
