@@ -26,9 +26,9 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
         return
       else
-        api = JSON.parse(body)
-        for entry of api.WiFiNetwork
-          res.send api.WiFiNetwork.netid
+        res.send body
+        #api = JSON.parse(body)
+        #for entry of api.results
           #ssid = api.results.ssid
           #lastupdt = api.results.lastupdt
           #road = api.results.road
