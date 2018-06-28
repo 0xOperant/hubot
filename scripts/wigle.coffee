@@ -38,4 +38,4 @@ module.exports = (robot) ->
             encryption = api.results[entry].encryption
             res.send "SSID #{ssid} last seen at #{road} in #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
         else
-          res.send "/shrug SSID #{query} not found. "
+          res.send ":disappointed: SSID #{query} not found on wigle.net. "
