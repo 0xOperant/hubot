@@ -29,11 +29,11 @@ module.exports = (robot) ->
         #res.send body
         api = JSON.parse(body)
         for entry of api.results
-          ssid = api.results.ssid
-          lastupdt = api.results.lastupdt
-          road = api.results.road
-          city = api.results.city
-          region = api.results.region
-          country = api.results.country
-          encryption = api.results.encryption
+          ssid = entry.ssid
+          lastupdt = entry.lastupdt
+          road = entry.road
+          city = entry.city
+          region = entry.region
+          country = entry.country
+          encryption = entry.encryption
           res.send "SSID #{ssid} seen at #{road} #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
