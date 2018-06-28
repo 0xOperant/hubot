@@ -19,8 +19,9 @@ module.exports = (robot) ->
   robot.respond /wigle (?:check) (.*)/i, (res) ->
     ssid = res.match[1]
     url = "https://api.wigle.net/api/v2/network/search?onlymine=false&freenet=false&paynet=false&ssid=#{ssid}"
-    url.headers Authorization: "Basic #{auth}"
-    robot.http(url).get() (err, response, body) ->
+    robot.http(url)
+    .headers Authorization: "Basic #{auth}"
+    .get() (err, response, body) ->
       if err
         res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
         return
