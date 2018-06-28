@@ -27,8 +27,8 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        for entry of api.results
-          res.send api.results.netid
+        for entry of api.WiFiNetwork
+          res.send api.WiFiNetwork.netid
           #ssid = api.results.ssid
           #lastupdt = api.results.lastupdt
           #road = api.results.road
