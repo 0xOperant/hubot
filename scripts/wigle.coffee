@@ -28,7 +28,7 @@ module.exports = (robot) ->
       else
         api = JSON.parse(body)
         for entry of api.results
-          res.send entry
+          res.send api.success
           #ssid = api.results.ssid
           #lastupdt = api.results.lastupdt
           #road = api.results.road
