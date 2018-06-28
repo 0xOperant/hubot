@@ -22,7 +22,8 @@ module.exports = (robot) ->
         if response.statusCode isnt 200
           res.send "T-t-t-that didn't *buuurrrp* work, broh."
           return
-        else api = JSON.parse body
+        else
+          api = JSON.parse body
           for result in api.body
             name = api.result.name
             value = api.result.value
