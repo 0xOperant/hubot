@@ -16,7 +16,11 @@
 module.exports = (robot) ->
   robot.respond /nslookup (.*) (.*)/i, (res) ->
     type = escape(res.match[1])
+    if type = ""
+      res.send "You need to specify a server type (MX, for example)"
     host = escape(res.match[2]).slice(9)
+    if host = ""
+      res.send "You need to specify a host (gmail.com, for example)"
     url = "https://dns-api.org/#{type}/#{host}"
     robot.http(url).get() (err, response, body) ->
       if response.statusCode isnt 200
