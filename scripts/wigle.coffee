@@ -27,7 +27,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        if api.totalResults not "0"
+        if api.totalResults > "0"
           for entry of api.results
             ssid = api.results[entry].ssid
             lastupdt = api.results[entry].lastupdt
