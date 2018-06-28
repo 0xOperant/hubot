@@ -16,7 +16,7 @@
 module.exports = (robot) ->
   robot.respond /nslookup (.*) (.*)/i, (res) ->
     type = escape(res.match[1])
-    host = escape(res.match[2]).slice(7)
+    host = escape(res.match[2]).slice(9)
     res.send "host = #{host}"
     url = "https://dns-api.org/#{type}/#{host}"
     robot.http(url).get() (err, response, body) ->
