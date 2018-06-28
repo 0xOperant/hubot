@@ -25,7 +25,8 @@ module.exports = (robot) ->
       else
         api = JSON.parse body
         for entry of api
-          res.send "entry = #{entry}"
           name = api[entry].name
+          ttl = api[entry].ttl
+          type = api[entry].type
           value = api[entry].value
-          res.send "#{name} = #{value}"
+          res.send "#{host} = #{name}, #{ttl}, #{type}, #{value}"
