@@ -16,10 +16,10 @@
 module.exports = (robot) ->
   robot.respond /nslookup (?:.*) (.*)/i, (res) ->
     type = escape(res.match[1])
-    if type is undefined
+    if type?
       type = "A"
     host = escape(res.match[2]).slice(9)
-    if host is undefined
+    if host?
       res.send host
     url = "https://dns-api.org/#{type}/#{host}"
     robot.http(url).get() (err, response, body) ->
