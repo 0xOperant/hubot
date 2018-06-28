@@ -26,14 +26,14 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
         return
       else
-        #res.send body
         api = JSON.parse(body)
-        for entry of api.results
-          ssid = entry.ssid
-          lastupdt = entry.lastupdt
-          road = entry.road
-          city = entry.city
-          region = entry.region
-          country = entry.country
-          encryption = entry.encryption
-          res.send "SSID #{ssid} seen at #{road} #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
+        res.send typeof(api)
+        #for entry of api.results
+        #  ssid = entry.ssid
+        #  lastupdt = entry.lastupdt
+        #  road = entry.road
+        #  city = entry.city
+        #  region = entry.region
+        #  country = entry.country
+        #  encryption = entry.encryption
+        #  res.send "SSID #{ssid} seen at #{road} #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
