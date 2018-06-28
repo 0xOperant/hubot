@@ -26,8 +26,8 @@ module.exports = (robot) ->
         res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
         return
       else
-        api = JSON.parse(body)
         res.send body.success
+        #api = JSON.parse(body)
         #for entry of api
         #  ssid = ssid
         #  lastupdt = lastupdt
