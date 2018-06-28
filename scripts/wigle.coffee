@@ -17,8 +17,8 @@ auth = process.env.WIGLE_API_AUTH
 
 module.exports = (robot) ->
   robot.respond /wigle (?:check) (.*)/i, (res) ->
-    ssid = res.match[1]
-    url = "https://api.wigle.net/api/v2/network/search?onlymine=false&freenet=false&paynet=false&ssid=#{ssid}"
+    query = res.match[1]
+    url = "https://api.wigle.net/api/v2/network/search?onlymine=false&freenet=false&paynet=false&ssid=#{query}"
     robot.http(url)
     .headers Authorization: "Basic #{auth}"
     .get() (err, response, body) ->
@@ -28,11 +28,11 @@ module.exports = (robot) ->
       else
         api = JSON.parse(body)
         for entry of api.results
-          ssid = ssid
-          lastupdt = lastupdt
-          road = road
-          city = city
-          region = region
-          country = country
-          encryption = encryption
+          ssid = results.ssid
+          lastupdt = results.lastupdt
+          road = results.road
+          city = results.city
+          region = results.region
+          country = results.country
+          encryption = results.encryption
           res.send "SSID #{ssid} seen at #{road} #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
