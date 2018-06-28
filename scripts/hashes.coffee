@@ -21,7 +21,7 @@ module.exports = (robot) ->
     url = "https://hashes.org/api.php?key=#{token}&query=#{hash}"
     robot.http(url).get() (err, response, body) ->
       if err
-        res.send ":disappointed: Encountered an error while searching hashes: #{err}"
+        res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
         return
       else
         api = JSON.parse(body)

@@ -117,7 +117,7 @@ module.exports = (robot) ->
                 msg.send getImageUrl(franchise, episode, timestamp, combineCaptions(response.data.Subtitles))
 
         else
-          console.log("Aw snap!  I couldn't find anything for `#{query[0]}`, broh.");
+          console.log(":rick: T-t-t-that didn't *buuurrrp* work, broh.");
 
       .catch (error) ->
         console.error(error);

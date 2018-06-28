@@ -49,7 +49,7 @@ darkSkyMe = (msg, lat, lng, cb) ->
       result = JSON.parse(body)
 
       if result.error
-        cb "#{result.error}"
+        cb "":rick: T-t-t-that didn't *buuurrrp* work, broh. #{result.error}"
         return
 
       isFahrenheit = process.env.HUBOT_DARK_SKY_UNITS == "us"

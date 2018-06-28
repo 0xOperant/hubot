@@ -19,7 +19,7 @@ module.exports = (robot) ->
     msg.send "Checking virustotal..."
     virustotal.getUrlReport msg.match[1], (err, res) ->
       if err
-        robot.logger.error err
+        res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
         return
       else if res.positives > 1
         TinyURL.shorten res.permalink, (turl) ->

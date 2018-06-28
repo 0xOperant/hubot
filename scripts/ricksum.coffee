@@ -1,5 +1,5 @@
 # Description:
-#   Gets quote from loremricksum.com api and posts to the current channel 
+#   Gets quote from loremricksum.com api and posts to the current channel
 #
 # Dependencies:
 #   None
@@ -19,7 +19,7 @@ module.exports = (robot) ->
       .header('Accept', 'application/json')
       .get() (err, response, body) ->
         if response.statusCode isnt 200
-          res.send "T-t-t-that didn't *buuurrrp* work, broh."
+          res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh."
           return
 
         quote = JSON.parse body

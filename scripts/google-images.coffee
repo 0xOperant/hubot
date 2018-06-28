@@ -69,7 +69,7 @@ imageMe = (msg, query, animated, faces, cb) ->
             msg.send "Daily image quota exceeded, using alternate source."
             deprecatedImage(msg, query, animated, faces, cb)
           else
-            msg.send "Encountered an error :( #{err}"
+            msg.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
           return
         if res.statusCode isnt 200
           msg.send "Bad HTTP response :( #{res.statusCode}"
@@ -79,7 +79,7 @@ imageMe = (msg, query, animated, faces, cb) ->
           image = msg.random response.items
           cb ensureResult(image.link, animated)
         else
-          msg.send "Oops. I had trouble searching '#{query}'. Try later."
+          msg.send ":rick: T-t-t-that didn't *buuurrrp* work, broh."
           ((error) ->
             msg.robot.logger.error error.message
             msg.robot.logger

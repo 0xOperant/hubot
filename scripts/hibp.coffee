@@ -20,7 +20,7 @@ module.exports = (robot) ->
     pastes = "https://haveibeenpwned.com/api/v2/pasteaccount/#{account}"
     robot.http(breach).get() (err, response, body) ->
       if err
-        res.send ":disappointed: Encountered an error while searching breaches: #{err}"
+        res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
         return
       else
         if response.statusCode is 404
