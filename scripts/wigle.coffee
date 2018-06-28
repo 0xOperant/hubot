@@ -18,9 +18,8 @@ auth = process.env.WIGLE_API_AUTH
 module.exports = (robot) ->
   robot.respond /wigle (?:check) (.*)/i, (res) ->
     ssid = res.match[1]
-    auth = 'Basic ' + auth
     url = "https://api.wigle.net/api/v2/network/search?onlymine=false&freenet=false&paynet=false&ssid=#{ssid}"
-    .headers(Authorization: auth, Accept: 'application/json')
+    req.headers Authorization: "Basic #{auth}"
     robot.http(url).get() (err, response, body) ->
       if err
         res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
