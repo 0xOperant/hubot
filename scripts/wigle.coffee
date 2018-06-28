@@ -27,7 +27,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        for entry of api.results
+        for entry in api.results
           ssid = results["ssid"]
           res.send ssid
           #lastupdt = entry.lastupdt
