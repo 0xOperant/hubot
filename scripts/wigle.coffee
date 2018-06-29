@@ -30,6 +30,7 @@ module.exports = (robot) ->
         if api.success is false
           res.send "We've hit our API limit for today. :disappointed:"
         else if api.totalResults > "0"
+        res.send "Total search results for #{query}: *#{api.totalResults}*"
           for entry of api.results
             ssid = api.results[entry].ssid
             lastupdt = api.results[entry].lastupdt
