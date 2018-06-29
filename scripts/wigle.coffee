@@ -30,7 +30,6 @@ module.exports = (robot) ->
         if api.success is false
           res.send "We've hit our API limit for today. :disappointed:"
         else if api.totalResults > "0"
-          res.send "Total search results for #{query}: *#{api.totalResults}.* Below are located in the US:"
           for entry of api.results
             ssid = api.results[entry].ssid
             lastupdt = api.results[entry].lastupdt
@@ -41,5 +40,6 @@ module.exports = (robot) ->
             encryption = api.results[entry].encryption
             if country is "US"
               res.send "SSID #{ssid} last seen at #{road} in #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
+          res.send "Total results: *#{api.totalResults}.* Displayed US results only."
         else
           res.send ":disappointed: SSID #{query} not found on wigle.net. "
