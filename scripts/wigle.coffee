@@ -23,13 +23,14 @@ module.exports = (robot) ->
     .headers Authorization: "Basic #{auth}"
     .get() (err, response, body) ->
       if err
-        res.send ":disappointed: Encountered an error while searching wigle.net: #{err}"
+        res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
         return
       else
         api = JSON.parse(body)
         if api.success is false
           res.send "We've hit our API limit for today. :disappointed:"
         else if api.totalResults > "0"
+          res.send "Total results: *#{api.totalResults}.* Displaying US results only."
           for entry of api.results
             ssid = api.results[entry].ssid
             lastupdt = api.results[entry].lastupdt
@@ -40,6 +41,5 @@ module.exports = (robot) ->
             encryption = api.results[entry].encryption
             if country is "US"
               res.send "SSID #{ssid} last seen at #{road} in #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
-          res.send "Total results: *#{api.totalResults}.* Displayed US results only."
         else
           res.send ":disappointed: SSID #{query} not found on wigle.net. "
