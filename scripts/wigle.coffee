@@ -27,10 +27,9 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        res.send typeof(api.success)
-        #if api.success = "false"
-        #  res.send "We've hit our API limit for today. :disappointed:"
-        if api.totalResults > "0"
+        if api.success == false
+        res.send "We've hit our API limit for today. :disappointed:"
+        else if api.totalResults > "0"
           for entry of api.results
             ssid = api.results[entry].ssid
             lastupdt = api.results[entry].lastupdt
