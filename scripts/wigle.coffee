@@ -38,7 +38,7 @@ module.exports = (robot) ->
             region = api.results[entry].region
             country = api.results[entry].country
             encryption = api.results[entry].encryption
-            if country = "US"
+            if country is "US"
               res.send "SSID #{ssid} last seen at #{road} in #{city}, #{region} on #{lastupdt}, using #{encryption} encryption."
         else
           res.send ":disappointed: SSID #{query} not found on wigle.net. "
