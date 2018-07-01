@@ -28,4 +28,22 @@ module.exports = (robot) ->
           name = api[entry].name
           type = api[entry].type
           value = api[entry].value
-          res.send "#{name} #{type} #{value}"
+          msg = {
+              "attachments": [
+                {
+                  "fallback": "#{name} #{type} #{value}",
+                  "color": "#36a64f",
+                  "pretext": "Results for #{type} #{host}:",
+                  "title": "DNS API Lookup Results",
+                  "title_link": "https://dns-api.org",
+                  "fields": [
+                    {
+                      "title": "#{name}:",
+                      "value": "Type: #{type} = #{value}",
+                      "short": false
+                    }
+                  ]
+                }
+              ]
+            }
+          res.send #{msg}
