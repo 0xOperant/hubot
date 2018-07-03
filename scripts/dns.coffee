@@ -33,16 +33,20 @@ module.exports = (robot) ->
               {
                 "fallback": "#{name} #{type} #{value}",
                 "color": "#36a64f",
-                "pretext": "Results for #{type} #{host}:",
-                "title": "DNS API Lookup Results",
-                "title_link": "https://dns-api.org",
+		"author_name": "DNS API",
+		"author_link": "https://dns-api.org/",
+                "title": "#{type} records for #{host}",
+                "title_link": "#{url}",
                 "fields": [
                   {
                     "title": "#{name}:",
-                    "value": "Type: #{type} = #{value}",
+                    "value": "#{type} records for #{host} = #{value}",
                     "short": false
                   }
-                ]
+                ],
+		"image_url": "https://pbs.twimg.com/profile_images/930498210812088320/jWwRw-Yt_400x400.jpg"
+		"thumb_url": "https://pbs.twimg.com/profile_images/930498210812088320/jWwRw-Yt_400x400.jpg"
+		"footer": "dns-api.org"
               }
             ]
           }
