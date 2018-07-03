@@ -46,7 +46,7 @@ module.exports = (robot) ->
 
 #bakes pie  
    robot.hear /I like pie/i, (res) ->
-     res.emote "makes a freshly baked pie :pie:"
+     res.emote "/me makes a freshly baked pie :pie:"
   
 #joins in the lols
    lulz = ['lol', 'rofl', 'lmao', 'lulz', 'heh', 'ha', 'l o l']
