@@ -11,7 +11,7 @@
 #   belldavidr
 #
 module.exports = (robot) ->
-  ROOM = daves_bots
+  ROOM = #daves_bots
   MESSAGE = "JARVIS ONLINE."
 
   robot.messageRoom ROOM, MESSAGE
