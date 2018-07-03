@@ -44,9 +44,9 @@ module.exports = (robot) ->
                     "short": false
                   }
                 ],
-		"image_url": "https://pbs.twimg.com/profile_images/930498210812088320/jWwRw-Yt_400x400.jpg"
-		"thumb_url": "https://pbs.twimg.com/profile_images/930498210812088320/jWwRw-Yt_400x400.jpg"
-		"footer": "dns-api.org"
+                "image_url": "https://pbs.twimg.com/profile_images/930498210812088320/jWwRw-Yt_400x400.jpg"
+                "thumb_url": "https://pbs.twimg.com/profile_images/930498210812088320/jWwRw-Yt_400x400.jpg"
+                "footer": "dns-api.org"
               }
             ]
           }
