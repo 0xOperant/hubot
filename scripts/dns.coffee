@@ -40,7 +40,7 @@ module.exports = (robot) ->
                 "fields": [
                   {
                     "title": "#{name}:",
-                    "value": "#{type} records for #{host} = #{value}",
+                    "value": "#{value}",
                     "short": false
                   }
                 ],
