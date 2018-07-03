@@ -12,6 +12,6 @@
 #
 module.exports = (robot) ->
   ROOM = "#daves_bots"
-  MESSAGE = "JARVIS ONLINE."
+  MESSAGE = "*JARVIS ONLINE* :robot_face:"
 
   robot.messageRoom ROOM, MESSAGE
