@@ -5,7 +5,7 @@
 #   newsapi
 #
 # Configuration:
-#   NEWSAPI_KEY
+#   HUBOT_NEWSAPI_KEY
 #
 # Commands:
 #   hubot *news me top headlines* - get top headlines
@@ -20,7 +20,7 @@ module.exports = (robot) ->
     if "top headlines" in res.match[1]
       url = url
       robot.http(url + "top-headlines?country=us")
-      .headers Authorization: process.env.NEWSAPI_KEY
+      .headers Authorization: process.env.HUBOT_NEWSAPI_KEY
       .get() (err, response, body) ->
         if err
           res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
