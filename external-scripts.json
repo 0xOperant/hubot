@@ -4,7 +4,6 @@
   "hubot-heroku-keepalive",
   "hubot-maps",
   "hubot-redis-brain",
-  "hubot-aftership",
   "hubot-markov",
   "hubot-voting",
   "hubot-auth",
