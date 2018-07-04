@@ -57,7 +57,7 @@ module.exports = (robot) ->
 
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
-    id = robot.brain.get(#{name})
+    id = robot.brain.get('#{name}')
     Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
       return res.reply "err #{err.message}" if err
       tracking = result.data.tracking
