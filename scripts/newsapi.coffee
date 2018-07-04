@@ -27,12 +27,12 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        if api.status is ok
-          for article in body.articles
-            source = body.articles[article].source
-            title = body.articles[article].title
-            description = body.articles[article].description
-            link = body.articles[article].url
+        if ok in api.status
+          for article in api.articles
+            source = api.articles[article].source
+            title = api.articles[article].title
+            description = api.articles[article].description
+            link = api.articles[article].url
             res.reply "Here are the current top headlines in the US:\n From #{source}: #{title}\n #{description}\n #{link}"
         else
           res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
