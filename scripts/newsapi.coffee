@@ -28,11 +28,11 @@ module.exports = (robot) ->
         api = JSON.parse(body)
         if api.totalResults > "0"
           for article of api.articles
-            source = api.articles[article].source
+            source = api.articles[article].source.name
             title = api.articles[article].title
             description = api.articles[article].description
             link = api.articles[article].url
-            res.send "#{source}\n #{title}\n #{description}\n #{link}"
+            res.send "*#{source}*\n #{title}\n #{link}\n"
         else
           res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
       return
