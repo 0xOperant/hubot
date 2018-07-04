@@ -2,16 +2,13 @@
 //   SSLLabs for Hubot
 //
 // Dependencies:
-//   "node-ssllabs": "^0.5.0"
+//   None
 //
 // Configuration:
 //   None
 //
 // Commands:
-//   hubot *is `domain` ssl ok?*
-//
-// Author:
-//   xurizaemon
+//   hubot is <domain> ssl OK?
 
 module.exports = function(robot) {
     robot.respond(/is (.*) ssl ok?\?/i, function(msg) {
