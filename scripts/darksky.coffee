@@ -18,6 +18,8 @@
 #
 # Author:
 #   kyleslattery
+#     modified by belldavidr
+
 module.exports = (robot) ->
 
   robot.respond /weather ?(.+)?/i, (msg) ->
