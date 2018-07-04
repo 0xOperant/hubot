@@ -48,7 +48,7 @@ module.exports = (robot) ->
           tracking_number: res.match[1]
           custom_fields:
             room: res.message.room
-            item: #{name}
+            item: "#{name}"
     Aftership.call 'POST', '/trackings', params, (err, result) ->
       return res.reply("err #{err.message}") if err
       tracking = result.data.tracking
