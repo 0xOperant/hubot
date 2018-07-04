@@ -53,7 +53,7 @@ module.exports = (robot) ->
       return res.reply("err #{err.message}") if err
       tracking = result.data.tracking
       robot.brain.set(#{name}, #{tracking.id})
-      res.reply ":package: Package tracked. Use `track info #{name}` to get updates on-demand.  Updates will also be pushed here."
+      res.reply ":package: Package tracked. Use: track info #{name} to get updates on-demand.  Updates will also be pushed here."
 
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
