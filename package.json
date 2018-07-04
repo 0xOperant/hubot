@@ -21,9 +21,11 @@
     "hubot-scripts": "^2.17.2",
     "hubot-slack": "^4.5.0",
     "hubot-voting": "^1.1.0",
+    "moment": "^2.11.2",
     "tinyurl": "^1.1.2",
     "virustotal.js": "^0.3.1",
     "pg-promise": "^5.4.5",
+    "querystring": "^0.2.0"
     "redis": "~0.9.1"
   },
   "engines": {
