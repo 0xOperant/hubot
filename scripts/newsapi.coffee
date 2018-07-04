@@ -13,7 +13,7 @@
 # Author:
 #   belldavidr
 
-url = https://newsapi.org/v2/
+url = "https://newsapi.org/v2/""
 
 module.exports = (robot) ->
   robot.respond /news me (.*)/i, (res) ->
