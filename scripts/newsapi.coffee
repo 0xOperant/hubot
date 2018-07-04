@@ -32,7 +32,7 @@ module.exports = (robot) ->
             title = api.articles[article].title
             description = api.articles[article].description
             link = api.articles[article].url
-            res.send "#{description}\n #{link}"
+            res.send "#{title}\n #{link}"
         else
           res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
       return
