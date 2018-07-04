@@ -13,7 +13,7 @@
 # Author:
 #   belldavidr
 
-url = "https://newsapi.org/v2/top-headlines?country=us"
+url = "https://newsapi.org/v2/top-headlines?country=us&pageSize=5"
 
 module.exports = (robot) ->
   robot.respond /news me top headlines/i, (res) ->
@@ -27,14 +27,14 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        res.send "api = #{api}\n body = #{body}"
         if api.totalResults > "0"
+          res.reply "Here are the current top five headlines in the US:\n"
           for article of api.articles
             source = api.articles[article].source
             title = api.articles[article].title
             description = api.articles[article].description
             link = api.articles[article].url
-            res.reply "Here are the current top headlines in the US:\n From #{source}: #{title}\n #{description}\n #{link}"
+            res.send "#{link}"
         else
           res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
       return
