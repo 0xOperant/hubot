@@ -28,8 +28,8 @@ module.exports = (robot) ->
       else
         api = JSON.parse(body)
         res.send "api = #{api}\n body = #{body}"
-        if ok in api.status
-          for article in api.articles
+        if api.totalResults > "0"
+          for article of api.articles
             source = api.articles[article].source
             title = api.articles[article].title
             description = api.articles[article].description
