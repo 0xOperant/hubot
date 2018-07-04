@@ -13,13 +13,13 @@
 # Author:
 #   belldavidr
 
-url = "https://newsapi.org/v2/"
+url = "https://newsapi.org/v2/top-headlines?country=us"
 
 module.exports = (robot) ->
   robot.respond /news me (.*)/i, (res) ->
     if "top headlines" in res.match[1]
       url = url
-      robot.http(url + "top-headlines?country=us")
+      robot.http(url)
       .headers Authorization: process.env.HUBOT_NEWSAPI_KEY
       .get() (err, response, body) ->
         if err
