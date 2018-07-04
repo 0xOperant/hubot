@@ -13,11 +13,11 @@
 # Author:
 #   belldavidr
 
-url = "https://newsapi.org/v2/""
+url = "https://newsapi.org/v2/"
 
 module.exports = (robot) ->
   robot.respond /news me (.*)/i, (res) ->
-    if res.match[1] = "top headlines"
+    if "top headlines" in res.match[1]
       url = url
       robot.http(url + "top-headlines?country=us")
       .headers Authorization: process.env.NEWSAPI_KEY
