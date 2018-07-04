@@ -27,6 +27,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
+        res.send "api = #{api}\n body = #{body}"
         if ok in api.status
           for article in api.articles
             source = api.articles[article].source
