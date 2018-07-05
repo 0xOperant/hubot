@@ -16,7 +16,7 @@
 auth = process.env.WIGLE_API_AUTH
 
 module.exports = (robot) ->
-  robot.respond /wigle (?:check) (.*)/i, (res) ->
+  robot.respond /wigle (?:check) (.+)/i, (res) ->
     query = res.match[1]
     url = "https://api.wigle.net/api/v2/network/search?onlymine=false&freenet=false&paynet=false&ssid=#{query}"
     robot.http(url)
