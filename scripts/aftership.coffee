@@ -55,9 +55,10 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse result
+        res.send "api = #{api}"
         id = api.data.tracking.id
         res.send "id = #{id}"
-        robot.brain.set('#{name}', id)
+        robot.brain.set('#{name}', '#{id}')
         res.reply ":package: Package tracked. Use track info #{name}."
 
   robot.respond /track info (.+)/i, (res) ->
