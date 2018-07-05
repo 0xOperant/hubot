@@ -15,7 +15,8 @@
 
 module.exports = (robot) ->
 
-  sleep = (ms) ->
+  sleep = (ms, func) -> setTimeout func, ms
+    analyze
 
   robot.respond /ssl (?:check) (.+)/i, (res) ->
     host = res.match[1].slice(7)
@@ -30,8 +31,7 @@ module.exports = (robot) ->
         status = api.statusMessage
         until api.status is "READY"
           res.send "status: #{status}..."
-          sleep 10000
-          analyze
+          await sleep 10000
         for endpoint of api.host.endpoints
           grade = api.host[endpoint].grade
           ip = api.host[endpoint].ipAddress
