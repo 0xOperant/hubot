@@ -24,7 +24,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse body
-        for endpoint in api.host.endpoints
+        for endpoint of api.host.endpoints
           grade = api.host[endpoint].grade
           ip = api.host[endpoint].ipAddress
           server = api.host[endpoint].serverName
