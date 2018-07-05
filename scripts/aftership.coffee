@@ -50,11 +50,12 @@ module.exports = (robot) ->
             room: res.message.room
             item: "#{name}"
     Aftership.call 'POST', '/trackings', params, (err, result) ->
-      return res.reply("err #{err.message}") if err
+      if err
+        res.reply "error: #{err.message}"
       else
         api = JSON.parse result
         id = api.data.tracking.id
-        robot.brain.set('#{name}', '#{id}')
+        robot.brain.set('#{name}', id)
         res.reply ":package: Package tracked. Use track info #{name}."
 
   robot.respond /track info (.+)/i, (res) ->
