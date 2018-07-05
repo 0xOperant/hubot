@@ -28,7 +28,6 @@ module.exports = (robot) ->
       else
         api = JSON.parse body
         res.send "api = #{api}
-        res.send "body = #{body}"
         until api.status is "READY"
           res.send "#{server} status: #{status}..."
           await sleep 10000
