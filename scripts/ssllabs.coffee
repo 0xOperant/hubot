@@ -19,9 +19,9 @@ module.exports = (robot) ->
 
   robot.respond /ssl (?:check) (.+)/i, (res) ->
     host = res.match[1].slice(7)
+    url = "https://api.ssllabs.com/api/v3/analyze?host=#{host}&fromCache=on&maxAge=730&all=done"
     res.reply "Scanning #{host} with Qualys SSL Labs..."
     analyze = robot.http(url).get() (err, response, body) ->
-      url = "https://api.ssllabs.com/api/v3/analyze?host=#{host}&fromCache=on&maxAge=730&all=done"
       robot.http(url).get() (err, response, body) ->
     if err
       res.reply ":rick: T-t-t-that didn't *buuurrrp* work, broh."
