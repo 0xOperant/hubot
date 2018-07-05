@@ -26,11 +26,10 @@ module.exports = (robot) ->
         res.reply ":rick: T-t-t-that didn't *buuurrrp* work, broh."
         return
       else
-        api = JSON.parse body
-        res.send "api = #{api}"
-        res.send "body = #{body}"
+        api = JSON.parse(body)
+        status = api.statusMessage
         until api.status is "READY"
-          res.send "#{server} status: #{status}..."
+          res.send "status: #{status}..."
           await sleep 10000
           analyze
         for endpoint of api.host.endpoints
