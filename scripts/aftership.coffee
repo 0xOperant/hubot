@@ -31,8 +31,8 @@ translateStatus = (status) ->
 
   statuses[status]
 
-printTrackingCurrentInfo = (tracking, name) ->
-  ":package: Package #{item}: Current status is #{translateStatus(tracking.tag)}."
+printTrackingCurrentInfo = (tracking) ->
+  ":package: Package #{tracking.custom_fields.item}: Current status is #{translateStatus(tracking.tag)}."
 
 printCheckPointsInfo = (checkpoints) ->
   msgs = checkpoints.reverse().map (checkpoint) ->
@@ -76,7 +76,6 @@ module.exports = (robot) ->
     return res.status(403).send("NOK") if secret != process.env.AFTERSHIP_SECRET
     return res.status(200).send("OK") if data.msg.id == "000000000000000000000000"
     room   = data.msg.custom_fields?.room
-    item   = data.msg.custom_fields?.item
     return res.status(400).send("NOK") if not room
 
     tracking = data.msg
