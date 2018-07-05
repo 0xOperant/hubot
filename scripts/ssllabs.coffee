@@ -14,20 +14,34 @@
 #  belldavidr
 
 module.exports = (robot) ->
+
+  analyze = robot.http(url).get() (err, response, body) ->
+    url = "https://api.ssllabs.com/api/v3/analyze?host=#{host}&fromCache=on&maxAge=730&all=done"
+    robot.http(url).get() (err, response, body) ->
+
+  sleep = (ms) ->
+
   robot.respond /ssl (?:check) (.+)/i, (res) ->
     host = res.match[1].slice(7)
     res.reply "Scanning #{host} with Qualys SSL Labs..."
-    url = "https://api.ssllabs.com/api/v3/analyze?host=#{host}&fromCache=on&maxAge=730&all=done"
-    robot.http(url).get() (err, response, body) ->
+    analyze
       if err
-        res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh."
+        res.reply ":rick: T-t-t-that didn't *buuurrrp* work, broh."
         return
       else
         api = JSON.parse body
-        for endpoint of api.host.endpoints
-          grade = api.host[endpoint].grade
-          ip = api.host[endpoint].ipAddress
-          server = api.host[endpoint].serverName
-          res.send "Grade: #{grade} for #{server} (#{ip}) \n"
-        res.send "Details are available at:\n #{url}"
+        until api.status is "READY"
+          for endpoint of api.host.endpoints
+            server = api.host[endpoint].serverName
+            status = api.host[endpoint].statusDetailsMessage
+          res.send "#{server} status: #{status}..."
+          await sleep 10000
+          analyze
+        else
+          for endpoint of api.host.endpoints
+            grade = api.host[endpoint].grade
+            ip = api.host[endpoint].ipAddress
+            server = api.host[endpoint].serverName
+            res.send "Grade: #{grade} for #{server} (#{ip}) \n"
+          res.reply "Details are available at:\n #{url}"
         return
