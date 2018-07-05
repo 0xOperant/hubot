@@ -52,6 +52,7 @@ module.exports = (robot) ->
     Aftership.call 'POST', '/trackings', params, (err, result) ->
       if err
         res.reply "error: #{err.message}"
+        return
       else
         api = JSON.parse result
         id = api.data.tracking.id
@@ -66,7 +67,7 @@ module.exports = (robot) ->
     Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
       return res.reply "err #{err.message}" if err
       tracking = result.data.tracking
-      res.reply printTrackingCurrentInfo(tracking, name) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+      res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
 
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)

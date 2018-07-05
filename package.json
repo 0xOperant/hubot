@@ -5,6 +5,7 @@
   "author": "belldavidr",
   "description": "Just A Rather Very Intelligent System (J.A.R.V.I.S.)",
   "dependencies": {
+    "aftership": "^5.3.0",
     "async": "2.1.4",
     "axios": "~0.14.0",
     "es6-promise": "~3.2.0",
@@ -26,6 +27,7 @@
     "tinyurl": "^1.1.2",
     "virustotal.js": "^0.3.1",
     "pg-promise": "^5.4.5",
+    "querystring": "^0.2.0",
     "redis": "~0.9.1"
   },
   "engines": {
