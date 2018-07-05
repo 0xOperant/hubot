@@ -16,7 +16,7 @@
 module.exports = (robot) ->
 
   sleep = (ms, func) -> setTimeout func, ms
-    analyze
+  analyze
 
   robot.respond /ssl (?:check) (.+)/i, (res) ->
     host = res.match[1].slice(7)
