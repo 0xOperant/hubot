@@ -13,19 +13,16 @@
 # Author
 #  belldavidr
 
-url = "https://api.ssllabs.com/api/v3/analyze?host=#{host}&fromCache=on&maxAge=730&all=done"
-
 module.exports = (robot) ->
-
-  analyze = robot.http(url).get() (err, response, body) ->
-    robot.http(url).get() (err, response, body) ->
 
   sleep = (ms) ->
 
   robot.respond /ssl (?:check) (.+)/i, (res) ->
     host = res.match[1].slice(7)
     res.reply "Scanning #{host} with Qualys SSL Labs..."
-    analyze
+    analyze = robot.http(url).get() (err, response, body) ->
+      url = "https://api.ssllabs.com/api/v3/analyze?host=#{host}&fromCache=on&maxAge=730&all=done"
+      robot.http(url).get() (err, response, body) ->
     if err
       res.reply ":rick: T-t-t-that didn't *buuurrrp* work, broh."
       return
