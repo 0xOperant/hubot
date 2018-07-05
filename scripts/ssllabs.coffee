@@ -34,11 +34,10 @@ module.exports = (robot) ->
         res.send "#{server} status: #{status}..."
         await sleep 10000
         analyze
-      else
-        for endpoint of api.host.endpoints
-          grade = api.host[endpoint].grade
-          ip = api.host[endpoint].ipAddress
-          server = api.host[endpoint].serverName
-          res.send "Grade: #{grade} for #{server} (#{ip}) \n"
-        res.reply "Details are available at:\n #{url}"
-      return
+      for endpoint of api.host.endpoints
+        grade = api.host[endpoint].grade
+        ip = api.host[endpoint].ipAddress
+        server = api.host[endpoint].serverName
+        res.send "Grade: #{grade} for #{server} (#{ip}) \n"
+      res.reply "Details are available at:\n #{url}"
+    return
