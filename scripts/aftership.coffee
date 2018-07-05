@@ -51,9 +51,11 @@ module.exports = (robot) ->
             item: "#{name}"
     Aftership.call 'POST', '/trackings', params, (err, result) ->
       return res.reply("err #{err.message}") if err
-      id = result.data.tracking.id
-      robot.brain.set('#{name}', '#{id}')
-      res.reply ":package: Package tracked. Use track info #{name}."
+      else
+        api = JSON.parse result
+        id = api.data.tracking.id
+        robot.brain.set('#{name}', '#{id}')
+        res.reply ":package: Package tracked. Use track info #{name}."
 
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
