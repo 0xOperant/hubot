@@ -32,7 +32,7 @@ translateStatus = (status) ->
   statuses[status]
 
 printTrackingCurrentInfo = (tracking, name) ->
-  ":package: Package #{name}: Current status is #{translateStatus(tracking.tag)}."
+  ":package: Package #{item}: Current status is #{translateStatus(tracking.tag)}."
 
 printCheckPointsInfo = (checkpoints) ->
   msgs = checkpoints.reverse().map (checkpoint) ->
@@ -55,6 +55,7 @@ module.exports = (robot) ->
       else
         api = JSON.parse result
         id = api.data.tracking.id
+        res.send "id = #{id}"
         robot.brain.set('#{name}', id)
         res.reply ":package: Package tracked. Use track info #{name}."
 
@@ -78,6 +79,6 @@ module.exports = (robot) ->
     return res.status(400).send("NOK") if not room
 
     tracking = data.msg
-    robot.messageRoom room, "Tracking update for #{item}:" + printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo([tracking.checkpoints.reverse()[0]])
+    robot.messageRoom room, printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo([tracking.checkpoints.reverse()[0]])
 
     res.send 'OK'
