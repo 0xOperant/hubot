@@ -36,7 +36,7 @@ printTrackingCurrentInfo = (tracking) ->
 
 printCheckPointsInfo = (checkpoints) ->
   msgs = checkpoints.reverse().map (checkpoint) ->
-    "- #{moment(checkpoint.checkpoint_time).fromNow()} #{translateStatus(checkpoint.tag)} #{checkpoint.message}."
+    "- #{moment(checkpoint.checkpoint_time).fromNow()}: #{translateStatus(checkpoint.tag)} #{checkpoint.message}."
   msgs.join("\n")
 
 module.exports = (robot) ->
