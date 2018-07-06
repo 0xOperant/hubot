@@ -68,6 +68,7 @@ module.exports = (robot) ->
 
   robot.respond /track list/i, (res) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
+      res.reply result
       return res.reply "error: #{err.message}" if err
       if result.data.count > 0
         tracking = result.data.trackings
