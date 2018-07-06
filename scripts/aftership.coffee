@@ -55,14 +55,12 @@ module.exports = (robot) ->
         return
       else
         tracking = result.data.tracking
-        res.send "tracking id = #{tracking.id}"
         robot.brain.set('#{name}', tracking.id)
-        res.reply ":package: Package tracked. Use `track info #{name}`."
+        res.reply ":package: Package tracked. Use `track info #{name}` for on-demand updates."
 
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
     id = robot.brain.get('#{name}')
-    res.send "id = #{id}"
     Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
       return res.reply "err #{err.message}" if err
       tracking = result.data.tracking
