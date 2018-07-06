@@ -69,9 +69,12 @@ module.exports = (robot) ->
   robot.respond /track list/i, (res) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
       return res.reply "error: #{err.message}" if err
-      tracking = result.data.trackings
-      for id of tracking.id
-        res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+      if result.data.count > 0
+        tracking = result.data.trackings
+        for id of tracking.id
+          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+      else
+        res.reply "Nothing to track here."
 
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
