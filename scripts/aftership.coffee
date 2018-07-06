@@ -69,9 +69,12 @@ module.exports = (robot) ->
   robot.respond /track list/i, (res) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
       return res.reply "error: #{err.message}" if err
+      res.reply result.meta.code
+      res.reply result.data.count
       if result.data.count > "0"
         tracking = result.data.trackings
         for id of tracking.id
+          res.reply id
           res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
       else
