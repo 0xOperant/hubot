@@ -54,12 +54,9 @@ module.exports = (robot) ->
         res.reply "error: #{err.message}"
         return
       else
-        api = JSON.parse result
-        res.send "api = #{api}"
-        id = api.data.tracking.id
-        res.send "id = #{id}"
-        robot.brain.set('#{name}', '#{id}')
-        res.reply ":package: Package tracked. Use track info #{name}."
+        tracking = result.data.tracking
+        robot.brain.set('#{name}', '#{tracking.id}')
+        res.reply ":package: Package tracked. Use `track info #{name}`."
 
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
