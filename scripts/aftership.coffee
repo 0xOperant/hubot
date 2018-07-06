@@ -71,7 +71,7 @@ module.exports = (robot) ->
       return res.reply "error: #{err.message}" if err
       if result.data.count > "0"
         tracking = result.data.trackings
-        for id in tracking.id
+        for id of tracking.id
           res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
       else
