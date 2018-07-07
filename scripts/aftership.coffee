@@ -95,7 +95,7 @@ module.exports = (robot) ->
           robot.send printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
         else
-          robot.send tracking.user "I'm not tracking any active shipments for you right now"
+          robot.send "I'm not tracking any active shipments for you right now"
           return
 
   robot.router.post '/aftership', (req, res) ->

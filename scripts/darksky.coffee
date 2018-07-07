@@ -60,7 +60,7 @@ module.exports = (robot) ->
             response = "Weather for #{result.results[0].formatted_address}:\n#{darkSkyText}"
             robot.send response
         else
-          robot.send weather.user "Couldn't find #{location}"
+          robot.send "Couldn't find #{location}"
 
 darkSkyMe = (msg, lat, lng, cb) ->
   url = "https://api.forecast.io/forecast/#{process.env.HUBOT_DARK_SKY_API_KEY}/#{lat},#{lng}/"
