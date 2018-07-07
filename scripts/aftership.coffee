@@ -55,12 +55,12 @@ module.exports = (robot) ->
         return
       else
         tracking = result.data.tracking
-        robot.brain.set('#{name}', tracking.id)
+        robot.brain.trackings.set('#{name}', tracking.id)
         res.reply ":package: Package tracked. Use `track info #{name}` for on-demand updates."
 
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
-    id = robot.brain.get('#{name}')
+    id = robot.brain.trackings.get('#{name}')
     Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
       return res.reply "error: #{err.message}" if err
       tracking = result.data.tracking
@@ -74,7 +74,7 @@ module.exports = (robot) ->
           res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
         else
-          res.reply "Nothing to track here."
+          res.reply "No active shipments to track at this time."
           return
 
   robot.router.post '/aftership', (req, res) ->
