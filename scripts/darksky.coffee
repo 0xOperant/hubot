@@ -56,6 +56,7 @@ module.exports = (robot) ->
         if result.results.length > 0
           lat = result.results[0].geometry.location.lat
           lng = result.results[0].geometry.location.lng
+          msg = weather
           darkSkyMe msg, lat,lng , (darkSkyText) ->
             response = "Weather for #{result.results[0].formatted_address}:\n#{darkSkyText}"
             robot.send response
