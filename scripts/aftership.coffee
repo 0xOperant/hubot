@@ -72,11 +72,11 @@ module.exports = (robot) ->
       api = JSON.parse(result)
       for tracking of api.data.trackings
         if tracking.active is True
-        res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
-        return
-      else
-        res.reply "Nothing to track here."
-        return
+          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+          return
+        else
+          res.reply "Nothing to track here."
+          return
 
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
