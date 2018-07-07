@@ -86,18 +86,6 @@ module.exports = (robot) ->
           res.reply "I'm not tracking any active shipments for you right now"
           return
 
-  robot.on 'shipment', (shipment) ->
-    Aftership.call 'GET', "/trackings", (err, result) ->
-      return robot.send "error: #{err.message}" if err
-      for tracking of result.data.trackings
-        if tracking.active is true and tracking.custom_fields.user is shipment.id
-          robot.send tracking:command.id "here are the active shipments I am tracking for you:"
-          robot.send printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
-          return
-        else
-          robot.send "I'm not tracking any active shipments for you right now"
-          return
-
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
     data   = if req.body.payload? then JSON.parse req.body.payload else req.body

@@ -42,27 +42,6 @@ module.exports = (robot) ->
         else
           msg.send "Couldn't find #{location}"
 
-  robot.on 'weather', (weather) ->
-    location = weather.zip || process.env.HUBOT_DARK_SKY_DEFAULT_LOCATION
-    return if not location
-
-    googleurl = "http://maps.googleapis.com/maps/api/geocode/json"
-    q = sensor: false, address: location
-    robot.http(googleurl)
-      .query(q)
-      .get() (err, res, body) ->
-        result = JSON.parse(body)
-
-        if result.results.length > 0
-          lat = result.results[0].geometry.location.lat
-          lng = result.results[0].geometry.location.lng
-          msg = weather
-          darkSkyMe msg, lat,lng , (darkSkyText) ->
-            response = "Weather for #{result.results[0].formatted_address}:\n#{darkSkyText}"
-            robot.send response
-        else
-          robot.send "Couldn't find #{location}"
-
 darkSkyMe = (msg, lat, lng, cb) ->
   url = "https://api.forecast.io/forecast/#{process.env.HUBOT_DARK_SKY_API_KEY}/#{lat},#{lng}/"
   if process.env.HUBOT_DARK_SKY_UNITS
