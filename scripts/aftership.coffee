@@ -55,13 +55,13 @@ module.exports = (robot) ->
         return
       else
         tracking = result.data.tracking
-        robot.brain.trackings.set('#{name}', tracking.id)
+        robot.brain.set.trackings('#{name}', tracking.id)
         res.reply ":package: Package tracked. Use `track info #{name}` for on-demand updates."
 
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
-    id = robot.brain.trackings.get('#{name}')
-    if typeof(id) is not "Undefined"
+    id = robot.brain.get.trackings('#{name}')
+    if id?
       Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
         return res.reply "error: #{err.message}" if err
         tracking = result.data.tracking
