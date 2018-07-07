@@ -14,7 +14,6 @@ module.exports = (robot) ->
   robot.respond /brief me/i, (res) ->
     id = res.message.user.id
     res.reply "here is your briefing:"
-    robot.emit 'test', {user: id}
-    #robot.emit 'weather', {user: id, location: zip}
-    #robot.emit 'shipment', {user: id}
-    #robot.emit 'news', {user: id}
+    robot.emit 'test_brief', {
+      user: id
+    }
