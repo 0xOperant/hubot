@@ -55,7 +55,7 @@ module.exports = (robot) ->
         return
       else
         tracking = result.data.tracking
-        robot.brain.set.trackings.set('#{name}', tracking.id)
+        robot.brain.trackings.set('#{name}', tracking.id)
         res.reply ":package: Package tracked. Use `track info #{name}` for on-demand updates."
 
   robot.respond /track info (.+)/i, (res) ->
