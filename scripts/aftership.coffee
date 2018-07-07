@@ -86,7 +86,7 @@ module.exports = (robot) ->
           res.reply "I'm not tracking any active shipments for you right now"
           return
 
-  robot.on "tracking" (tracking) ->
+  robot.on "tracking", (tracking) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
       return robot.send tracking.user "error: #{err.message}" if err
       for tracking of result.data.trackings
