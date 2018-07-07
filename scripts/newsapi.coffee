@@ -9,7 +9,7 @@
 #
 # Commands:
 #   hubot *news me top headlines* - get top 5 headlines in the US
-#   hubot *news me `query` - get top 5 headlines for `query`
+#   hubot *news me `query`* - get top 5 headlines for `query`
 #
 # Author:
 #   belldavidr
