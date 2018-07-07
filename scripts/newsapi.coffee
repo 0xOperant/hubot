@@ -38,7 +38,7 @@ module.exports = (robot) ->
 
   robot.respond /news me (.+)/i, (res) ->
     query = res.match[1]
-    url = "https://newsapi.org/v2/everything?q=#{query}&language=en&pageSize=5"
+    url = "https://newsapi.org/v2/everything?q=#{query}&language=en&sortBy=popularity&pageSize=5"
     robot.http(url)
     .headers Authorization: process.env.HUBOT_NEWSAPI_KEY
     .get() (err, response, body) ->
