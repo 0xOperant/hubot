@@ -70,9 +70,9 @@ module.exports = (robot) ->
           res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
         else
-          res.reply "Sorry, I'm not tracking any packages for you by that name: (#{name})"
+          res.reply "I'm not tracking any active packages for you by that name: (#{name})"
     else
-      res.reply "Sorry, I'm not tracking any packages by that name: (#{name})"
+      res.reply "I'm not tracking any active packages by that name: (#{name})"
       return
 
   robot.respond /track list/i, (res) ->
