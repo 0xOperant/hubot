@@ -15,6 +15,6 @@ module.exports = (robot) ->
     zip = res.match[1] or 2332
     id = res.message.user.id
     res.reply "here is your briefing:"
-    robot.emit 'weather', id, zip
-    robot.emit 'shipment', id
-    robot.emit 'news', id
+    robot.emit 'weather', {user: id, location: zip}
+    robot.emit 'shipment', {user: id}
+    robot.emit 'news', {user: id}

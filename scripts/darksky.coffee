@@ -42,7 +42,7 @@ module.exports = (robot) ->
         else
           msg.send "Couldn't find #{location}"
 
-  robot.on 'weather', (id, zip) ->
+  robot.on 'weather', (weather) ->
     location = weather.zip || process.env.HUBOT_DARK_SKY_DEFAULT_LOCATION
     return if not location
 
