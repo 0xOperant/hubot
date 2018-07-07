@@ -10,8 +10,9 @@
 # Author:
 #   belldavidr
 
+test_brief = {}
+
 module.exports = (robot) ->
-  test_brief = {}
   robot.on 'test_brief', (test_brief) ->
-  robot.send "#{test_brief.user}"
+  robot.send test_brief.user "it worked"
   return
