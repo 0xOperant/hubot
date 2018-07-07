@@ -48,7 +48,7 @@ module.exports = (robot) ->
 
     googleurl = "http://maps.googleapis.com/maps/api/geocode/json"
     q = sensor: false, address: location
-    msg.http(googleurl)
+    robot.http(googleurl)
       .query(q)
       .get() (err, res, body) ->
         result = JSON.parse(body)

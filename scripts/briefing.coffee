@@ -12,7 +12,7 @@
 
 module.exports = (robot) ->
   robot.respond /brief me (.*)?/i, (res) ->
-    zip = res.match[1]
+    zip = res.match[1] || 23322
     res.reply "here is your briefing:"
     robot.emit "weather", {user: res.message.user.id, location: zip}
     robot.emit "tracking", {user: res.message.user.id}
