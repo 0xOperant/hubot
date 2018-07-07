@@ -11,10 +11,10 @@
 #   belldavidr
 
 module.exports = (robot) ->
-  robot.respond /brief me (.*)?/i, (res) ->
-    zip = res.match[1] || process.env.HUBOT_DARK_SKY_DEFAULT_LOCATION
+  robot.respond /brief me/i, (res) ->
     id = res.message.user.id
     res.reply "here is your briefing:"
+    robot.emit 'test', {user: id}
     #robot.emit 'weather', {user: id, location: zip}
-    robot.emit 'shipment', {user: id}
-    robot.emit 'news', {user: id}
+    #robot.emit 'shipment', {user: id}
+    #robot.emit 'news', {user: id}
