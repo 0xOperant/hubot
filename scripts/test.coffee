@@ -11,6 +11,6 @@
 #   belldavidr
 
 module.exports = (robot) ->
-  robot.on 'test', (id) ->
+  robot.on 'test', (test) ->
   robot.send "id = #{test.id}"
   return
