@@ -42,8 +42,8 @@ module.exports = (robot) ->
         else
           msg.send "Couldn't find #{location}"
 
-  robot.on "weather", (weather) ->
-    location = weather.location || process.env.HUBOT_DARK_SKY_DEFAULT_LOCATION
+  robot.on 'weather:command', (id, zip) ->
+    location = weather:command.zip || process.env.HUBOT_DARK_SKY_DEFAULT_LOCATION
     return if not location
 
     googleurl = "http://maps.googleapis.com/maps/api/geocode/json"

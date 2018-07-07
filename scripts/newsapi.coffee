@@ -58,13 +58,13 @@ module.exports = (robot) ->
           res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
       return
 
-  robot.on "news", (news) ->
+  robot.on 'news:command', (id) ->
     url = "https://newsapi.org/v2/top-headlines?country=us&pageSize=5"
     robot.http(url)
     .headers Authorization: process.env.HUBOT_NEWSAPI_KEY
     .get() (err, response, body) ->
       if err
-        robot.send news.user ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
+        robot.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
         return
       else
         api = JSON.parse(body)
@@ -76,5 +76,5 @@ module.exports = (robot) ->
             link = api.articles[article].url
             robot.send "*#{source}*\n #{title}\n #{link}\n"
         else
-          robot.send news.user ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
+          robot.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
       return
