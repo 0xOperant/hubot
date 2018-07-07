@@ -12,7 +12,7 @@
 
 module.exports = (robot) ->
   robot.respond /brief me (.*)?/i, (res) ->
-    zip = res.match[1]? or 2332
+    zip = msg.match[1] || process.env.HUBOT_DARK_SKY_DEFAULT_LOCATION
     id = res.message.user.id
     res.reply "here is your briefing:"
     robot.emit 'weather', {user: id, location: zip}
