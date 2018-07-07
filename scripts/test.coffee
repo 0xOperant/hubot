@@ -14,5 +14,5 @@ test_brief = {}
 
 module.exports = (robot) ->
   robot.on "test_brief", (test_brief) ->
-  test_brief.send "it worked"
+  res.send "it worked"
   return
