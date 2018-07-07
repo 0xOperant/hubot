@@ -61,7 +61,7 @@ module.exports = (robot) ->
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
     id = robot.brain.trackings.get('#{name}')
-    if id is not "undefined"
+    if typeof(id) is not "undefined"
       Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
         return res.reply "error: #{err.message}" if err
         tracking = result.data.tracking
