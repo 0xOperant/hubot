@@ -58,7 +58,7 @@ module.exports = (robot) ->
           res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
       return
 
-  robot.on 'news:command', (id) ->
+  robot.on 'news', (id) ->
     url = "https://newsapi.org/v2/top-headlines?country=us&pageSize=5"
     robot.http(url)
     .headers Authorization: process.env.HUBOT_NEWSAPI_KEY
