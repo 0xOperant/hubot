@@ -16,4 +16,5 @@ module.exports = (robot) ->
     robot.emit 'test_brief', {
       user: res.message.user.id
       room: res.message.room
+      res: res
     }
