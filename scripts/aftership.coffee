@@ -61,15 +61,15 @@ module.exports = (robot) ->
   robot.respond /track info (.+)/i, (res) ->
     name = res.match[1]
     id = robot.brain.trackings.get('#{name}')
-    if id is undefined
-      res.reply "Sorry, I'm not tracking any packages by that name: (#{name})"
-      return
-    else
+    if id?
       Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
         return res.reply "error: #{err.message}" if err
         tracking = result.data.tracking
         res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
         return
+    else
+      res.reply "Sorry, I'm not tracking any packages by that name: (#{name})"
+      return
 
   robot.respond /track list/i, (res) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
