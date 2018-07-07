@@ -49,6 +49,7 @@ module.exports = (robot) ->
           custom_fields:
             room: res.message.room
             item: "#{name}"
+            user: res.message.user.id
     Aftership.call 'POST', '/trackings', params, (err, result) ->
       if err
         res.reply "error: #{err.message}"
@@ -65,8 +66,11 @@ module.exports = (robot) ->
       Aftership.call 'GET', "/trackings/#{id}", (err, result) ->
         return res.reply "error: #{err.message}" if err
         tracking = result.data.tracking
-        res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
-        return
+        if tracking.custom_fields.user is res.message.user.id
+          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+          return
+        else
+          res.reply "Sorry, I'm not tracking any packages for you by that name: (#{name})"
     else
       res.reply "Sorry, I'm not tracking any packages by that name: (#{name})"
       return
@@ -75,11 +79,11 @@ module.exports = (robot) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
       return res.reply "error: #{err.message}" if err
       for tracking of result.data.trackings
-        if tracking.active is true
+        if tracking.active is true and tracking.custom_fields.user is res.message.user.id
           res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
         else
-          res.reply "No active shipments to track at this time."
+          res.reply "I'm not tracking any active shipments for you right now"
           return
 
   robot.router.post '/aftership', (req, res) ->
