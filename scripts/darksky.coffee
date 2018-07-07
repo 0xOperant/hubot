@@ -67,25 +67,28 @@ darkSkyMe = (msg, lat, lng, cb) ->
   url = "https://api.forecast.io/forecast/#{process.env.HUBOT_DARK_SKY_API_KEY}/#{lat},#{lng}/"
   if process.env.HUBOT_DARK_SKY_UNITS
     url += "?units=#{process.env.HUBOT_DARK_SKY_UNITS}"
-  msg.http(url)
-    .get() (err, res, body) ->
-      result = JSON.parse(body)
+  try
+    msg.http(url)
+  catch error
+    robot.http(url)
+      .get() (err, res, body) ->
+        result = JSON.parse(body)
 
-      if result.error
-        cb ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{result.error}"
-        return
+        if result.error
+          cb ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{result.error}"
+          return
 
-      isFahrenheit = process.env.HUBOT_DARK_SKY_UNITS == "us"
-      if isFahrenheit
-        fahrenheit = result.currently.temperature
-        celsius = (fahrenheit - 32) * (5 / 9)
-      else
-        celsius = result.currently.temperature
-        fahrenheit = celsius * (9 / 5) + 32
-      humidity = result.currently.humidity * 100
-      precip = result.currently.precipProbability * 100
-      response = "*Currently:* #{result.currently.summary} (#{fahrenheit}°F "
-      response += "with #{humidity}% humidity and #{precip}% chance of precipitation).\n"
-      response += "*Today:* #{result.hourly.summary}\n"
-      response += "*Coming week:* #{result.daily.summary}"
-      cb response
+        isFahrenheit = process.env.HUBOT_DARK_SKY_UNITS == "us"
+        if isFahrenheit
+          fahrenheit = result.currently.temperature
+          celsius = (fahrenheit - 32) * (5 / 9)
+        else
+          celsius = result.currently.temperature
+          fahrenheit = celsius * (9 / 5) + 32
+        humidity = result.currently.humidity * 100
+        precip = result.currently.precipProbability * 100
+        response = "*Currently:* #{result.currently.summary} (#{fahrenheit}°F "
+        response += "with #{humidity}% humidity and #{precip}% chance of precipitation).\n"
+        response += "*Today:* #{result.hourly.summary}\n"
+        response += "*Coming week:* #{result.daily.summary}"
+        cb response
