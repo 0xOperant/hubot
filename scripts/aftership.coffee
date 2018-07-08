@@ -7,7 +7,7 @@
 #
 # Commands:
 #   hubot *track me `trackingnumber` `name`* - provide tracking number and a name
-#   hubot *track info `name`* - get current info for the tracking id or name
+#   hubot *track info `name`* - get current info for the specified `name`
 #
 # Author:
 #   François de Metz
