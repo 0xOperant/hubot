@@ -16,7 +16,7 @@
 
 module.exports = (robot) ->
   robot.respond /news me top headlines/i, (res) ->
-    url = "https://newsapi.org/v2/top-headlines?country=us&pageSize=5"
+    url = "https://newsapi.org/v2/top-headlines?country=us&pageSize=5&page=1"
     robot.http(url)
     .headers Authorization: process.env.HUBOT_NEWSAPI_KEY
     .get() (err, response, body) ->
@@ -38,7 +38,7 @@ module.exports = (robot) ->
 
   robot.respond /news me (.+)/i, (res) ->
     query = res.match[1]
-    url = "https://newsapi.org/v2/everything?q=#{query}&language=en&sortBy=popularity&pageSize=5"
+    url = "https://newsapi.org/v2/everything?q=#{query}&language=en&sortBy=popularity&pageSize=5&page=1"
     robot.http(url)
     .headers Authorization: process.env.HUBOT_NEWSAPI_KEY
     .get() (err, response, body) ->
