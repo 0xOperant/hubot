@@ -7,6 +7,5 @@
   "hubot-markov",
   "hubot-voting",
   "hubot-auth",
-  "hubot-ansible",
-  "hubot-wolfram-alpha"
+  "hubot-ansible"
 ]
