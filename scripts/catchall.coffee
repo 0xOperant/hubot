@@ -11,4 +11,4 @@ module.exports = (robot) ->
   robot.catchAll (res) ->
     match = /^\@jarvis+/i.test(res.message.text) or /^\jarvis+/i.test(res.message.text)
     if match 
-      res.reply "I don't yet know the command: `#{res.message.text}`\nPlease try `@jarvis help` or `@jarvis help <command>` for command/syntax help."
+      res.reply "I don't yet know the command: `#{res.message.text}`\nPlease try `@jarvis help` or `@jarvis help #{res.message.text}` for command/syntax help."
