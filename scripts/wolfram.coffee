@@ -8,7 +8,7 @@
 #   HUBOT_WOLFRAM_APPID - your AppID
 #
 # Commands:
-#   hubot question <question> - Searches Wolfram Alpha for the answer to the question
+#   hubot *question `question`* - Searches Wolfram Alpha for the answer to the question
 #
 # Notes:
 #   This may not work with node 0.6.x
@@ -18,11 +18,9 @@
 Wolfram = require('wolfram').createClient(process.env.HUBOT_WOLFRAM_APPID)
 
 module.exports = (robot) ->
-  robot.respond /(question|wfa) (.*)$/i, (msg) ->
-    console.log msg.match
-    Wolfram.query msg.match[2], (e, result) ->
-      # console.log result
+  robot.respond /(question|wfa) (.*)$/i, (res) ->
+    Wolfram.query res.match[2], (err, result) ->
       if result and result.length > 0
-        msg.send result[1]['subpods'][0]['value']
+        res.send result[1]['subpods'][0]['value']
       else
-        msg.send 'Hmm...not sure'
+        res.send 'Hmm...not sure'
