@@ -24,6 +24,7 @@
     "hubot-voting": "^1.1.0",
     "moment": "^2.11.2",
     "node-ssllabs": "^0.5.0",
+    "node-wolfram-api": "^1.0.0",
     "tinyurl": "^1.1.2",
     "virustotal.js": "^0.3.1",
     "pg-promise": "^5.4.5",
