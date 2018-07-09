@@ -15,7 +15,7 @@
 
 module.exports = (robot) ->
   robot.respond /is (.*?) (up|down)(\?)?/i, (res) ->
-    domain = res.match[1].slice(7)
+    domain = escape(res.match[1]).slice(7)
     url = "http://isitup.org/#{domain}.json"
     robot.http(url).get() (err, response, body) ->
       if response.statusCode isnt 200
