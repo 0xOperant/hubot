@@ -22,13 +22,13 @@ module.exports = (robot) ->
     robot.http(url)
       .header('User-Agent', 'Hubot')
       .get() (err, res, body) ->
-      response = JSON.parse(body)
-      res.send "response = #{response}"
-      if response.status_code is 1
-        cb "#{response.domain} looks UP from here."
-      else if response.status_code is 2
-        cb "#{response.domain} looks DOWN from here."
-      else if response.status_code is 3
-        cb "Are you sure '#{response.domain}' is a valid domain?"
-      else
-        msg.send "Not sure, #{response.domain} returned an error."
+        response = JSON.parse body
+        res.send "response = #{response}"
+        if response.status_code is 1
+          res.send "#{response.domain} looks UP from here."
+        else if response.status_code is 2
+          res.send "#{response.domain} looks DOWN from here."
+        else if response.status_code is 3
+          res.send "Are you sure '#{response.domain}' is a valid domain?"
+        else
+          res.send "Not sure, #{response.domain} returned an error."
