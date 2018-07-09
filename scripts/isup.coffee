@@ -16,7 +16,9 @@
 module.exports = (robot) ->
   robot.respond /is (.*?) (up|down)(\?)?/i, (res) ->
     domain = escape(res.match[1]).slice(9)
+    res.send "domain = #{domain}"
     url = "http://isitup.org/#{domain}.json"
+    res.send "url = #{url}"
     robot.http(url).get() (err, response, body) ->
       res.send "body = #{body}"
 #      response = JSON.parse(body)
