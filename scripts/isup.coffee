@@ -21,9 +21,8 @@ module.exports = (robot) ->
     res.send "url = #{url}"
     robot.http(url).get() (err, response, body) ->
       res.send "response = #{response}"
-      res.send "body = #{body}"
-#     results = JSON.parse response
-#       res.send results
+      results = JSON.parse response
+      res.send "results = #{results}"
 #       if response.status_code is 1
 #         res.send "`#{results.domain}` looks *up* from here."
 #       else
