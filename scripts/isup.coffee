@@ -22,10 +22,8 @@ module.exports = (robot) ->
     robot.http(url)
       .header('User-Agent', 'Hubot')
       .get() (err, response, body) ->
-#        results = JSON.parse(body)
-        res.send "body = #{body}"
-        res.send "response = #{response}"
-#        res.send "results = #{results}"
+        results = JSON.parse(response)
+        res.send "results = #{results}"
 #        if response.status_code is 1
 #          res.send "`#{results.domain}` looks *up* from here."
 #        else
