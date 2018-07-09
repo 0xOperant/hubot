@@ -20,7 +20,7 @@ module.exports = (robot) ->
     url = "http://isitup.org/#{domain}.json"
     res.send "url = #{url}"
     robot.http(url).get() (err, response, body) ->
-      .header('User-Agent', 'Hubot')
+    .header('User-Agent', 'Hubot')
       res.send "body = #{body}"
 #      response = JSON.parse(body)
 #      if response.status_code is 1
