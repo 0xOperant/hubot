@@ -15,14 +15,11 @@
 
 module.exports = (robot) ->
   robot.respond /is (.*?) (up|down)(\?)?/i, (res) ->
-    domain = escape(res.match[1]).slice(7)
-    res.send "domain = #{domain}"
+    domain = escape(res.match[1]).slice(9)
     url = "http://isitup.org/#{domain}.json"
-    res.send "url = #{url}"
     robot.http(url).get() (err, response, body) ->
-      res.send "body = #{body}"
-#      response = JSON.parse(body)
-#      if response.status_code is 1
-#        res.send "`#{response.domain}` looks *up* from here."
-#      else
-#        res.send "`#{response.domain}` looks *down* from here."
+      response = JSON.parse(body)
+      if response.status_code is 1
+        res.send "`#{response.domain}` looks *up* from here."
+      else
+        res.send "`#{response.domain}` looks *down* from here."
