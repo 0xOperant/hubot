@@ -22,7 +22,7 @@ module.exports = (robot) ->
       response = JSON.parse(body)
       if response.status_code is 1
         res.send "`#{response.domain}` looks *up* from here."
-      else if response.status_code is 2
+      else response.status_code is 2
         res.send "`#{response.domain}` looks *down* from here."
       else response.status_code is 3
         res.send "Are you sure `#{response.domain}` is a valid domain?"
