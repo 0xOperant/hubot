@@ -19,13 +19,13 @@ module.exports = (robot) ->
     robot.http("http://isitup.org/#{domain}.json")
     .header('User-Agent', 'Hubot')
     .get() (err, res, body) ->
-      response = JSON.parse(body)
-      if response.status_code is 1
-        res.send "`#{response.domain}` looks *up* from here."
-        return
-      else if response.status_code is 2
-        res.send "`#{response.domain}` looks *down* from here."
-        return
-      else response.status_code is 3
-        res.send "Are you sure `#{response.domain}` is a valid domain?"
-        return
+    response = JSON.parse(body)
+    if response.status_code is 1
+      res.send "`#{response.domain}` looks *up* from here."
+      return
+    else if response.status_code is 2
+      res.send "`#{response.domain}` looks *down* from here."
+      return
+    else response.status_code is 3
+      res.send "Are you sure `#{response.domain}` is a valid domain?"
+      return
