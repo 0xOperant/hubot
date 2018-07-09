@@ -18,8 +18,9 @@ module.exports = (robot) ->
     domain = escape(res.match[1]).slice(9)
     url = "http://isitup.org/#{domain}.json"
     robot.http(url).get() (err, response, body) ->
-      response = JSON.parse(body)
-      if response.status_code is 1
-        res.send "`#{response.domain}` looks *up* from here."
-      else
-        res.send "`#{response.domain}` looks *down* from here."
+      res.send "body = #{body}"
+#      response = JSON.parse(body)
+#      if response.status_code is 1
+#        res.send "`#{response.domain}` looks *up* from here."
+#      else
+#        res.send "`#{response.domain}` looks *down* from here."
