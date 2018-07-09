@@ -16,7 +16,7 @@
 module.exports = (robot) ->
   robot.respond /is (?:http\:\/\/)?(.*?) (up|down)(\?)?/i, (res) ->
     domain = res.match[1]
-    msg.http("http://isitup.org/#{domain}.json")
+    robot.http("http://isitup.org/#{domain}.json")
     .header('User-Agent', 'Hubot')
     .get() (err, res, body) ->
       response = JSON.parse(body)
