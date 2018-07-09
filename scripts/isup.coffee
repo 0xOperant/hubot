@@ -11,23 +11,20 @@
 #   hubot *is `domain` up?* - Checks if `domain` is up
 #
 # Author:
-#   jmhobbs
+#   belldavidr
 
 module.exports = (robot) ->
-  robot.respond /is (?:http\:\/\/)?(.*?) (up|down)(\?)?/i, (msg) ->
-    isUp msg, msg.match[1], (domain) ->
-      msg.send domain
-
-isUp = (msg, domain, cb) ->
-  msg.http("http://isitup.org/#{domain}.json")
+  robot.respond /is (?:http\:\/\/)?(.*?) (up|down)(\?)?/i, (res) ->
+    domain = res.match[1]
+    msg.http("http://isitup.org/#{domain}.json")
     .header('User-Agent', 'Hubot')
     .get() (err, res, body) ->
       response = JSON.parse(body)
       if response.status_code is 1
-        cb "#{response.domain} looks UP from here."
+        res.send "`#{response.domain}` looks *up* from here."
       else if response.status_code is 2
-        cb "#{response.domain} looks DOWN from here."
+        res.send "`#{response.domain}` looks *down* from here."
       else if response.status_code is 3
-        cb "Are you sure '#{response.domain}' is a valid domain?"
+        res.send "Are you sure `#{response.domain}` is a valid domain?"
       else
-        msg.send "Not sure, #{response.domain} returned an error."
+        res.send "Not sure, `#{response.domain}` returned an error."
