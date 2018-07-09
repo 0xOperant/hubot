@@ -24,7 +24,8 @@ module.exports = (robot) ->
       .get() (err, response, body) ->
         response = JSON.parse(body)
         res.send "body = #{body}"
-        if response.status_code is 1
-          res.send "`#{response.domain}` looks *up* from here."
-        else
-          res.send "`#{response.domain}` looks *down* from here."
+        res.send "response = #{response}"
+#        if response.status_code is 1
+#          res.send "`#{response.domain}` looks *up* from here."
+#        else
+#          res.send "`#{response.domain}` looks *down* from here."
