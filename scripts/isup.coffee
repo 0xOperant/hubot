@@ -29,9 +29,5 @@ module.exports = (robot) ->
           res.send "response = #{response}"
           if response.status_code is 1
             res.send "#{response.domain} looks UP from here."
-          else if response.status_code is 2
-            res.send "#{response.domain} looks DOWN from here."
-          else if response.status_code is 3
-            res.send "Are you sure '#{response.domain}' is a valid domain?"
           else
-            res.send "Not sure, #{response.domain} returned an error."
+            res.send "#{response.domain} looks DOWN from here."
