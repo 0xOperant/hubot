@@ -82,9 +82,6 @@ module.exports = (robot) ->
       for tracking of result.data.trackings
         res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
         return
-      else
-        res.reply "I'm not tracking any active shipments for you right now"
-        return
 
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
