@@ -91,7 +91,7 @@ module.exports = (robot) ->
         res.send "count = #{result.data.count}"
         for x of result.data.trackings
           tracking = result.data.trackings[x]
-          res.send "item = #{tracking[x].custom_fields.item}"
+          res.send "item = #{tracking.custom_fields.item}"
           res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
       else
