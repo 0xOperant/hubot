@@ -78,8 +78,9 @@ module.exports = (robot) ->
   robot.respond /track list/i, (res) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
       return res.reply "error: #{err.message}" if err
-      for tracking of result.data.trackings
-        if trackings[tracking].custom_fields.user is res.message.user.id
+      api = result.data.trackings
+      for tracking of api
+        if api.trackings[tracking].custom_fields.user is res.message.user.id
           res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
           return
         else
