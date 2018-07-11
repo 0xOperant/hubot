@@ -82,7 +82,7 @@ module.exports = (robot) ->
       return
 
   robot.respond /track list/i, (res) ->
-    Aftership.call 'GET', "/trackings?keyword=#{res.message.user.id}&fields=checkpoints,checkpoint_time,tag,message", (err, result) ->
+    Aftership.call 'GET', "/trackings?fields=checkpoints,checkpoint_time,tag,message", (err, result) ->
       return res.reply "error: #{err.message}" if err
       res.send "meta code = #{result.meta.code}"
       if result.data.count > "0"
