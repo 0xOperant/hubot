@@ -32,8 +32,12 @@ translateStatus = (status) ->
   statuses[status]
 
 printTrackingCurrentInfo = (tracking) ->
-  item = tracking.custom_fields.item? or trackings.custom_fields.item?
-  tag = tracking.tag? or trackings.tag?
+  if tracking.custom_fields.item? then item = tracking.custom_fields.item
+  else
+    item = trackings.custom_fields.item
+  if tracking.tag? then tag = tracking.tag
+  else
+    tag = trackings.tag
   ":package: Current status of package #{item} is: *#{translateStatus(tag)}*."
 
 printCheckPointsInfo = (checkpoints) ->
