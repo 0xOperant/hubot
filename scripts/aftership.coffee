@@ -89,8 +89,9 @@ module.exports = (robot) ->
       res.send "meta code = #{result.meta.code}"
       if result.data.count > "0"
         res.send "count = #{result.data.count}"
-        for entry of result.data.trackings
-          res.send typeof(entry)
+        api = JSON.parse result.data.trackings
+        res.send typeof(api)
+#        for entry of api
 #          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
 #          return
 #      else
