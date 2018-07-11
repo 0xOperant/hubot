@@ -76,9 +76,9 @@ module.exports = (robot) ->
       return
 
   robot.respond /track list/i, (res) ->
-    Aftership.call 'GET', "/trackings", (err, result) ->
+    Aftership.call 'GET', "/trackings", (err, res, body) ->
       return res.reply "error: #{err.message}" if err
-      api = JSON.parse result
+      api = JSON.parse body
       res.send "api = #{api}"
       for tracking of api.data.trackings
         res.send "tracking = #{tracking}"
