@@ -89,12 +89,12 @@ module.exports = (robot) ->
       res.send "meta code = #{result.meta.code}"
       if result.data.count > "0"
         res.send "count = #{result.data.count}"
-        for entry of result.data.trackings
+        for entry of result.data.tracking
           res.send "entry = #{entry}"
-          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
-          return
-      else
-        res.reply "I'm not tracking any active packages for you right now."
+#          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+#          return
+#      else
+#        res.reply "I'm not tracking any active packages for you right now."
 
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
