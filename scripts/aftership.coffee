@@ -35,9 +35,11 @@ printTrackingCurrentInfo = (tracking) ->
   if tracking.custom_fields.item? then item = tracking.custom_fields.item
   else
     item = trackings.custom_fields.item
+  res.send "item = #{item}"
   if tracking.tag? then tag = tracking.tag
   else
     tag = trackings.tag
+  res.send "tag = #{tag}"
   ":package: Current status of package #{item} is: *#{translateStatus(tag)}*."
 
 printCheckPointsInfo = (checkpoints) ->
