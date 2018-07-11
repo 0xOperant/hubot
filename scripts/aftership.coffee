@@ -79,13 +79,12 @@ module.exports = (robot) ->
     Aftership.call 'GET', "/trackings?keyword=#{res.message.user.id}&fields=checkpoints,checkpoint_time,tag,message", (err, result) ->
       return res.reply "error: #{err.message}" if err
       res.send "meta code = #{result.meta.code}"
-#      for tracking of api.data.trackings
-#        res.send "tracking = #{tracking}"
-#          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
-#          return
-#        else
-#          res.reply "I'm not tracking any active shipments for you right now"
-#          return
+      for tracking of result.data.trackings
+        res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+        return
+      else
+        res.reply "I'm not tracking any active shipments for you right now"
+        return
 
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
