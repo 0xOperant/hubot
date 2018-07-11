@@ -88,6 +88,8 @@ module.exports = (robot) ->
       return res.reply "error: #{err.message}" if err
       res.send "meta code = #{result.meta.code}"
       if result.data.count > "0"
+        api = JSON.parse result
+        res.send "api = #{api}"
         res.send "count = #{result.data.count}"
         for entry of result.data.trackings
           res.send "entry = #{entry}"
