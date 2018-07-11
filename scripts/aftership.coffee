@@ -78,7 +78,7 @@ module.exports = (robot) ->
   robot.respond /track list/i, (res) ->
     Aftership.call 'GET', "/trackings", (err, result) ->
       return res.reply "error: #{err.message}" if err
-      res.send typeof(result)
+      res.send result
 #      for tracking of api.data.trackings
 #        res.send "tracking = #{tracking}"
 #        if data.trackings[tracking].custom_fields.user is res.message.user.id
