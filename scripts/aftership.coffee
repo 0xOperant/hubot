@@ -32,7 +32,9 @@ translateStatus = (status) ->
   statuses[status]
 
 printTrackingCurrentInfo = (tracking) ->
-  ":package: Current status of package #{tracking.custom_fields.item} is: *#{translateStatus(tracking.tag)}*."
+  item = tracking.custom_fields.item? or trackings.custom_fields.item
+  tag = tracking.tag? or trackings.tag
+  ":package: Current status of package #{item} is: *#{translateStatus(tag)}*."
 
 printCheckPointsInfo = (checkpoints) ->
   msgs = checkpoints.reverse().map (checkpoint) ->
@@ -79,9 +81,13 @@ module.exports = (robot) ->
     Aftership.call 'GET', "/trackings?keyword=#{res.message.user.id}&fields=checkpoints,checkpoint_time,tag,message", (err, result) ->
       return res.reply "error: #{err.message}" if err
       res.send "meta code = #{result.meta.code}"
-      for tracking of result.data.trackings
-        res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
-        return
+      if result.data.count > "0"
+        res.send "count = #{result.data.count}"
+        for tracking of result.data.trackings
+          res.reply printTrackingCurrentInfo(tracking) + "\n" + printCheckPointsInfo(tracking.checkpoints)
+          return
+      else
+        res.reply "I'm not tracking any active packages for you right now."
 
   robot.router.post '/aftership', (req, res) ->
     query = querystring.parse(url.parse(req.url).query)
