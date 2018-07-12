@@ -32,7 +32,7 @@ translateStatus = (status) ->
   statuses[status]
 
 printTrackingCurrentInfo = (tracking) ->
-  ":package: Current status of package #{tracking.custom_fields.item} is: *#{translateStatus(tag)}*."
+  ":package: Current status of package #{tracking.custom_fields.item} is: *#{translateStatus(tracking.tag)}*."
 
 printCheckPointsInfo = (checkpoints) ->
   msgs = checkpoints.reverse().map (checkpoint) ->
