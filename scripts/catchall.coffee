@@ -9,6 +9,6 @@
 
 module.exports = (robot) ->
   robot.catchAll (res) ->
-    match = /^\@ultron+/i.test(res.message.text) or /^\ultron+/i.test(res.message.text)
+    match = /^\@ultron+/i.test(res.message.text)
     if match 
       res.reply "I don't yet know the command: `#{res.message.text}`\nPlease try `@#{robot.name} help` or `@#{robot.name} help <command>` for command/syntax help.\nYou can also request this function by github Pull Request."
