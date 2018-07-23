@@ -25,6 +25,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
+        res.send api
         if "null" not in api.result
           for entry of api.result
             plain = api.result[entry].plain
