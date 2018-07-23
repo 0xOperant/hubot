@@ -25,10 +25,7 @@ module.exports = (robot) ->
         return
       else
         api = JSON.parse(body)
-        if api.result != "null"
           for entry of api.result
-            plain = api.result[entry].plain
+            plain = api.result[entry].plain? else "not found"
             algo = api.result[entry].algorithm
             res.send "#{algo} hash: #{entry} = #{plain}"
-        else
-          res.send "Hash #{hash} is not in the hashes.org database."
