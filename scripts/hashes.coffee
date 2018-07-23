@@ -23,11 +23,12 @@ module.exports = (robot) ->
       if err
         res.send ":rick: T-t-t-that didn't *buuurrrp* work, broh. #{err}"
         return
-      else if body?
-        api = JSON.parse(body)
-        for entry of api.result
-          plain = api.result[entry].plain
-          algo = api.result[entry].algorithm
-          res.send "#{algo} hash: #{entry} = #{plain}"
       else
-        res.send "Hash #{hash} is not in the hashes.org database."
+        api = JSON.parse(body)
+        if api?
+          for entry of api.result
+            plain = api.result[entry].plain
+            algo = api.result[entry].algorithm
+            res.send "#{algo} hash: #{entry} = #{plain}"
+        else
+          res.send "Hash #{hash} is not in the hashes.org database."
