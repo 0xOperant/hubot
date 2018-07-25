@@ -6,7 +6,7 @@ snark = [
   'oh go home and cry into your cock-shaped pillow',
   'sorry, your pants are muffling your voice',
   'try using your big-boy voice',
-  'you're just talking way too much',
+  'you are just talking way too much',
   'go make me a sammich',
   '_this fucking guy_',
   'dude, seriously?',
