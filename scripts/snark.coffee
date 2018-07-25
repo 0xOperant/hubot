@@ -35,7 +35,7 @@ module.exports = (robot) ->
    robot.listen(
     (message) ->
       return false unless message.text
-      if Math.random() > 0.1 
+      if Math.random() > 0.95 
         return true
       else 
         return false
