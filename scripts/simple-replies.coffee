@@ -54,8 +54,8 @@ module.exports = (robot) ->
    robot.listen(
     (message) ->
       return false unless message.text
-      match = message.text.match /ha|heh|lulz|lol|lmao|l o l|rofl/i
-      if match and Math.random() > 0.95 
+      match = message.text.match(/ha|heh|lulz|lol|lmao|l o l|rofl/i)
+      if match? and Math.random() > 0.8 
         return true
       else 
         return false
