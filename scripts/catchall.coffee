@@ -6,9 +6,37 @@
 #
 # Commands:
 #  None
+#
+# Author
+#  0xOperant
 
 module.exports = (robot) ->
+  
+  snark = [
+     'now *that* is just _dumb_',
+     'you first, pussy',
+     '_ugh, jesus fuck, really...?_',
+     'wtf is wrong with you',
+     'sorry, your pants are muffling your voice',
+     'try using your big-boy voice',
+     '_this fucking guy..._',
+     'dude, seriously?',
+     'oh piss off',
+     ':face_with_rolling_eyes:',
+     'why are you stupid?',
+     ':troll:',
+     'I do not know that command. For help: _lol nobody gives a fuck_',
+     'hold my beer',
+     'No, bitch',
+     '_what a cocksplat_',
+     'well, who put a quarter in you',
+     ':middle_finger:',
+     ':middle_finger::middle_finger:',
+     'do it your *damn* self',
+     'lolno :middle_finger:'
+     ]
+  
   robot.catchAll (res) ->
     match = /^\@ultron+/i.test(res.message.text)
     if match 
-      res.reply "I don't yet know the command: `#{res.message.text}`\nPlease try `@#{robot.name} help` or `@#{robot.name} help <command>` for command/syntax help.\nYou can also request this function by github Pull Request."
+      res.reply res.random snark
