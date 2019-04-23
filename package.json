@@ -10,7 +10,7 @@
     "axios": "~0.14.0",
     "camo-url": "^0.1.5",
     "es6-promise": "~3.2.0",
-    "hubot": "^2.19.0",
+    "hubot": "^3.3.2",
     "hubot-ansible": "^0.1.2",
     "aftership": "^5.3.0",
     "hubot-auth": "^2.1.0",
